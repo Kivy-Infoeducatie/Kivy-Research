@@ -42,6 +42,7 @@ ipython==8.18.1
 isoduration==20.11.0
 jedi==0.19.2
 Jinja2==3.1.6
+joblib==1.5.0
 json5==0.12.0
 jsonpointer==3.0.0
 jsonschema==4.23.0
@@ -77,6 +78,7 @@ pandocfilters==1.5.1
 parso==0.8.4
 pathspec==0.12.1
 pexpect==4.9.0
+pillow==11.2.1
 platformdirs==4.3.7
 prometheus_client==0.21.1
 prompt_toolkit==3.0.51
@@ -99,13 +101,17 @@ rfc3339-validator==0.1.4
 rfc3986-validator==0.1.1
 rpds-py==0.24.0
 safetensors==0.5.3
+scikit-learn==1.6.1
+scipy==1.13.1
 Send2Trash==1.8.3
+sentence-transformers==4.1.0
 six==1.17.0
 sniffio==1.3.1
 soupsieve==2.7
 stack-data==0.6.3
 sympy==1.14.0
 terminado==0.18.1
+threadpoolctl==3.6.0
 tinycss2==1.4.0
 tokenize_rt==6.1.0
 tokenizers==0.21.1

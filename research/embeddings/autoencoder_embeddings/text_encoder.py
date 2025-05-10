@@ -1,26 +1,30 @@
 import torch.nn as nn
-from transformers import AutoModel
+from transformers import AutoTokenizer, AutoModel
 
 
 class TextEncoder(nn.Module):
     def __init__(
         self,
-        transformer_model="microsoft/MiniLM-L12-H384-uncased",
-        text_embedding_dim=128,
+        transformer_model: str,
+        transformer_model_embedding_dim: int,
+        text_embedding_dim: int,
     ):
         super(TextEncoder, self).__init__()
+        self.tokenizer = AutoTokenizer.from_pretrained(transformer_model)
         self.transformer = AutoModel.from_pretrained(transformer_model)
-        self.fc_text = nn.Linear(
-            384, text_embedding_dim
-        )  # MiniLM produces 384-dimensional embeddings
+        self.fc_text = nn.Linear(transformer_model_embedding_dim, text_embedding_dim)
 
-    def forward(self, text_input):
-        # Encode text using MiniLM
-        text_output = self.transformer(
-            input_ids=text_input["input_ids"],
-            attention_mask=text_input["attention_mask"],
+    def forward(self, text_batch):
+        print(text_batch)
+        print(123)
+        encoded = self.tokenizer(
+            text_batch, padding=True, truncation=True, return_tensors="pt"
+        ).to(self.transformer.device)
+
+        output = self.transformer(
+            input_ids=encoded["input_ids"], attention_mask=encoded["attention_mask"]
         )
-        text_embedding = self.fc_text(
-            text_output.pooler_output
-        )  # Shape: (batch_size, text_embedding_dim)
+
+        cls_embedding = output.last_hidden_state[:, 0, :]  # [CLS] token
+        text_embedding = self.fc_text(cls_embedding)
         return text_embedding
