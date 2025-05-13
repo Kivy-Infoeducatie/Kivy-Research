@@ -1,6 +1,8 @@
 from torch import nn
 
-from embeddings.autoencoder_embeddings.recipe_autoencoder_config import RecipeAutoencoderConfig
+from embeddings.autoencoder_embeddings.recipe_autoencoder_config import (
+    RecipeAutoencoderConfig,
+)
 
 
 class RecipeDecoder(nn.Module):

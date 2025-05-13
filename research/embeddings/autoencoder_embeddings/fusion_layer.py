@@ -9,4 +9,5 @@ class FusionLayer(nn.Module):
 
     def forward(self, *features):
         combined_features = torch.cat(features, dim=-1)
+
         return self.fusion(combined_features)

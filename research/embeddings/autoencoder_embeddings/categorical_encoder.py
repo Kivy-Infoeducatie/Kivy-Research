@@ -15,9 +15,7 @@ class CategoricalEncoder(nn.Module):
         )
 
     def forward(self, tags, categories):
-        tags_encoded = torch.sum(
-            self.tag_embedding(tensor(tags, dtype=torch.int64)), dim=1
-        )
+        tags_encoded = torch.sum(self.tag_embedding(tags), dim=0)
 
         categories_encoded = self.category_embedding(categories)
 

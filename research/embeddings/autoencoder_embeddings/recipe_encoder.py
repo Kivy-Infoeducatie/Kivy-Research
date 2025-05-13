@@ -51,14 +51,16 @@ class RecipeEncoder(nn.Module):
         step_embeddings = self.text_encoder(steps[0])
         steps_encoded = torch.mean(step_embeddings, dim=0)
 
-        tags_encoded, categories_encoded = self.categorical_encoder(tags[0], categories[0])
+        tags_encoded, categories_encoded = self.categorical_encoder(
+            tags[0], categories[0]
+        )
 
         ingredients_encoded = self.ingredient_encoder(ingredient_ids[0])
 
         nutriments_encoded = self.nutriment_encoder(nutriments[0])
 
         latent_embedding = self.fusion_layer(
-            name_encoded,
+            name_encoded.squeeze(),
             steps_encoded,
             tags_encoded,
             categories_encoded,

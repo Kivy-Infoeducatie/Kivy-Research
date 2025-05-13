@@ -15,8 +15,6 @@ class TextEncoder(nn.Module):
         self.fc_text = nn.Linear(transformer_model_embedding_dim, text_embedding_dim)
 
     def forward(self, text_batch):
-        print(text_batch)
-        print(123)
         encoded = self.tokenizer(
             text_batch, padding=True, truncation=True, return_tensors="pt"
         ).to(self.transformer.device)
