@@ -4,8 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Improved UI, timer and cutter components and refactored project structure">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Modified calibration">
+      <change afterPath="$PROJECT_DIR$/../CV/calib.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/models/hand_landmarker.task" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/wasm/vision_wasm_internal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/wasm/vision_wasm_internal.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/wasm/vision_wasm_nosimd_internal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/wasm/vision_wasm_nosimd_internal.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/dev/hand-cursor.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/dev/hand-tracking-video.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/overlays/calibration-overlay.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/hand-tracking/draw-landmarks.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/hand-tracking/event-propagation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/hand-tracking/format-landmarks.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/hand-tracking/hand-tracking-context.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/base-floating-widget.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/draggable.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/movable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/movable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/overlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/scrollable.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/selectable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/zoomable.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,24 +60,32 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/karo/Developer/Kivy/kivy-hub",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/karo/Developer/Kivy/kivy-hub/kivy-hub/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/public/wasm&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/wasm" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/markers" />
+      <recent name="$PROJECT_DIR$/public/models" />
+      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -90,6 +121,12 @@
       <workItem from="1748334536783" duration="19000" />
       <workItem from="1748495440254" duration="95000" />
       <workItem from="1748551687862" duration="274000" />
+      <workItem from="1748601317467" duration="7058000" />
+      <workItem from="1748714013480" duration="6856000" />
+      <workItem from="1748794273876" duration="1987000" />
+      <workItem from="1748802773609" duration="2037000" />
+      <workItem from="1748943363130" duration="1922000" />
+      <workItem from="1748958728648" duration="1000" />
     </task>
     <task id="LOCAL-00001" summary="Initialized and created basic hand tracking input">
       <option name="closed" value="true" />

@@ -35,6 +35,7 @@ export default function ({
 
   return (
     <div
+      data-can-interact=''
       {...props}
       ref={refObject}
       className={cn('select-none flex ', props.className)}

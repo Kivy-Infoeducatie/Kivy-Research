@@ -2,7 +2,7 @@ import { ReactNode, useRef, useState } from 'react';
 import Selectable from './selectable.tsx';
 import { useKivyContext } from '../../lib/contexts/kivy-provider.tsx';
 
-export default function ({ children }: { children: ReactNode }) {
+export function Movable({ children }: { children: ReactNode }) {
   const { kivyModule } = useKivyContext();
 
   const [forceSelect, setForceSelect] = useState<boolean>(false);

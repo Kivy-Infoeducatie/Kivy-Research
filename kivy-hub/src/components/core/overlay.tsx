@@ -19,7 +19,7 @@ export default function Overlay({
         ...props.style
       }}
       className={cn(
-        'fixed top-0 left-0 w-screen h-screen z-50',
+        'fixed top-0 left-0 w-screen h-screen z-50 justify-center items-center bg-white',
         props.className
       )}
     />
