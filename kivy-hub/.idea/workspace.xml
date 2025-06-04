@@ -4,31 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Modified calibration">
-      <change afterPath="$PROJECT_DIR$/../CV/calib.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/models/hand_landmarker.task" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/wasm/vision_wasm_internal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/wasm/vision_wasm_internal.wasm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/wasm/vision_wasm_nosimd_internal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/wasm/vision_wasm_nosimd_internal.wasm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/dev/hand-cursor.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/dev/hand-tracking-video.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/overlays/calibration-overlay.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/hand-tracking/draw-landmarks.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/hand-tracking/event-propagation.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/hand-tracking/format-landmarks.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/hand-tracking/hand-tracking-context.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Added forgotten xml files in .idea">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bun.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bun.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/base-floating-widget.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/draggable.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/movable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/movable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/overlay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/scrollable.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/core/selectable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/zoomable.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/matrix.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/matrix.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +108,7 @@
       <workItem from="1748802773609" duration="2037000" />
       <workItem from="1748943363130" duration="1922000" />
       <workItem from="1748958728648" duration="1000" />
+      <workItem from="1749032582934" duration="1678000" />
     </task>
     <task id="LOCAL-00001" summary="Initialized and created basic hand tracking input">
       <option name="closed" value="true" />
