@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Added forgotten xml files in .idea">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bun.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bun.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/matrix.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/matrix.ts" afterDir="false" />
-    </list>
+    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Made templates for the following pages: about, contact, docs, home, login, register and root layout for header and footer" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +102,7 @@
       <workItem from="1748802773609" duration="2037000" />
       <workItem from="1748943363130" duration="1922000" />
       <workItem from="1748958728648" duration="1000" />
-      <workItem from="1749032582934" duration="1678000" />
+      <workItem from="1749032582934" duration="2105000" />
     </task>
     <task id="LOCAL-00001" summary="Initialized and created basic hand tracking input">
       <option name="closed" value="true" />
@@ -126,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748551943428</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Made templates for the following pages: about, contact, docs, home, login, register and root layout for header and footer">
+      <option name="closed" value="true" />
+      <created>1749034366102</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1749034366102</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,6 +137,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initialized and created basic hand tracking input" />
     <MESSAGE value="Improved UI, timer and cutter components and refactored project structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved UI, timer and cutter components and refactored project structure" />
+    <MESSAGE value="Made templates for the following pages: about, contact, docs, home, login, register and root layout for header and footer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made templates for the following pages: about, contact, docs, home, login, register and root layout for header and footer" />
   </component>
 </project>

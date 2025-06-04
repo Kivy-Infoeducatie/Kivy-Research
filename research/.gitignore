@@ -2,3 +2,5 @@
 .idea
 data
 parsers/output
+
+*.pkl
