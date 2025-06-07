@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Switched to NextJS project">
+      <change afterPath="$PROJECT_DIR$/src/app/(site)/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/layout/footer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/layout/header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/playground/overlays/range-overlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(auth)/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/(auth)/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(auth)/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/(auth)/register/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/about/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/about/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/contact/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/contact/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/docs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/docs/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/movable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/movable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/overlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/core/widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/widget.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dev/hand-cursor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/hand-cursor.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dev/hand-tracking-video.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/hand-tracking-video.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dev/widget-stack-debugger.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/widget-stack-debugger.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/root-layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/overlays/calibration-overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/overlays/calibration-overlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/overlays/measure-overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/overlays/measure-overlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/overlays/range-overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/overlays/select-overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/overlays/select-overlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/overlays/slicing-overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/overlays/slicing-overlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/widgets/home-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/widgets/main-selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/main-selectable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/widgets/menu-config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/menu-config.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/widgets/menu-items.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/menu-items.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/widgets/timer/timer-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/timer/timer-menu.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Karo8870&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Karo8870/Kivy.git&quot;,
+    &quot;accountId&quot;: &quot;552a6d36-9f16-4320-b237-73eb120a10bd&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2wtmgYaqhe0RElpbhutKrIT0r91" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/kivy-hub&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/kivy-hub" />
+      <recent name="$PROJECT_DIR$/kivy-hub/src/app/playground" />
+      <recent name="$PROJECT_DIR$/kivy-hub/src/app/docs" />
+      <recent name="$PROJECT_DIR$/kivy-hub/src/app/contact" />
+      <recent name="$PROJECT_DIR$/kivy-hub/src/app/about" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app" />
+      <recent name="$PROJECT_DIR$/src/app/(site)" />
+      <recent name="$PROJECT_DIR$/src/components/playground" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/kivy-hub/public" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.112" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="" />
+      <created>1746869356500</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1746869356500</updated>
+      <workItem from="1746869357751" duration="608000" />
+      <workItem from="1747133867406" duration="14000" />
+      <workItem from="1747564975802" duration="601000" />
+      <workItem from="1747647699135" duration="16349000" />
+      <workItem from="1747664675945" duration="604000" />
+      <workItem from="1747669432247" duration="1005000" />
+      <workItem from="1747670998755" duration="1200000" />
+      <workItem from="1747686154715" duration="26987000" />
+      <workItem from="1747777625211" duration="10778000" />
+      <workItem from="1747827541853" duration="1000" />
+      <workItem from="1747892482407" duration="32000" />
+      <workItem from="1748207811510" duration="29303000" />
+      <workItem from="1748250660413" duration="9096000" />
+      <workItem from="1748293896417" duration="17267000" />
+      <workItem from="1748330171280" duration="222000" />
+      <workItem from="1748334536783" duration="19000" />
+      <workItem from="1748495440254" duration="95000" />
+      <workItem from="1748551687862" duration="274000" />
+      <workItem from="1748601317467" duration="7058000" />
+      <workItem from="1748714013480" duration="6856000" />
+      <workItem from="1748794273876" duration="1987000" />
+      <workItem from="1748802773609" duration="2037000" />
+      <workItem from="1748943363130" duration="1922000" />
+      <workItem from="1748958728648" duration="1000" />
+      <workItem from="1749032582934" duration="2105000" />
+      <workItem from="1749195857522" duration="2397000" />
+      <workItem from="1749206788372" duration="3593000" />
+      <workItem from="1749241126558" duration="1673000" />
+      <workItem from="1749290874418" duration="4000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initialized and created basic hand tracking input">
+      <option name="closed" value="true" />
+      <created>1748208005407</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1748208005407</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Improved UI, timer and cutter components and refactored project structure">
+      <option name="closed" value="true" />
+      <created>1748551943428</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748551943428</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Made templates for the following pages: about, contact, docs, home, login, register and root layout for header and footer">
+      <option name="closed" value="true" />
+      <created>1749034366102</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1749034366102</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Switched to NextJS project">
+      <option name="closed" value="true" />
+      <created>1749206607393</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1749206607393</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initialized and created basic hand tracking input" />
+    <MESSAGE value="Improved UI, timer and cutter components and refactored project structure" />
+    <MESSAGE value="Made templates for the following pages: about, contact, docs, home, login, register and root layout for header and footer" />
+    <MESSAGE value="Switched to NextJS project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Switched to NextJS project" />
+  </component>
+</project>
