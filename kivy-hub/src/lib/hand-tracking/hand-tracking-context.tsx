@@ -9,8 +9,11 @@ import {
 } from 'react';
 import { FilesetResolver, HandLandmarker } from '@mediapipe/tasks-vision';
 import { NormalizedLandmark } from '@mediapipe/hands';
-import { eventPropagation } from './event-propagation.ts';
-import { HandLandmarks, parseLandmarksArray } from './format-landmarks.ts';
+import {
+  HandLandmarks,
+  parseLandmarksArray
+} from '@/lib/hand-tracking/format-landmarks';
+import { eventPropagation } from '@/lib/hand-tracking/event-propagation';
 
 interface HandTrackingContextInterface {
   handTracker: HandLandmarker | null;
@@ -35,7 +38,7 @@ export function useHandTracking() {
     );
   }
 
-  return useContext(handTrackingContext);
+  return useContext(handTrackingContext)!;
 }
 
 enum ModelStatus {
@@ -95,7 +98,7 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
       return;
     }
 
-    const video = videoRef.current;
+    const video = videoRef.current as HTMLVideoElement;
 
     if (video.currentTime !== lastVideoTime) {
       lastVideoTime = video.currentTime;
@@ -134,9 +137,11 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
 
     async function enableWebcam() {
       try {
-        videoRef.current.srcObject =
+        // @ts-ignore
+        videoRef.current!.srcObject =
           await navigator.mediaDevices.getUserMedia(constraints);
-        videoRef.current.addEventListener('loadeddata', predictHandMarks);
+        // @ts-ignore
+        videoRef.current!.addEventListener('loadeddata', predictHandMarks);
       } catch (error) {
         console.error('Error accessing webcam:', error);
       }
@@ -146,13 +151,17 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
       void enableWebcam();
       setWebcamRunning(true);
     } else if (!isTracking && webcamRunning) {
+      // @ts-ignore
       const tracks = videoRef.current.srcObject?.getTracks();
       tracks?.forEach((track: any) => track.stop());
+      // @ts-ignore
+
       videoRef.current.srcObject = null;
       setWebcamRunning(false);
     }
 
     return () => {
+      // @ts-ignore
       const tracks = videoRef.current?.srcObject?.getTracks();
       tracks?.forEach((track: any) => track.stop());
     };

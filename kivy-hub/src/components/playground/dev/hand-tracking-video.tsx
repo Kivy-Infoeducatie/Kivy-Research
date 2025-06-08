@@ -1,12 +1,12 @@
-import { useHandTracking } from '../../lib/hand-tracking/hand-tracking-context.tsx';
 import { useEffect, useRef } from 'react';
-import { drawLandmarks } from '../../lib/hand-tracking/draw-landmarks.ts';
+import { useHandTracking } from '@/lib/hand-tracking/hand-tracking-context';
+import { drawLandmarks } from '@/lib/hand-tracking/draw-landmarks';
 
 export function HandTrackingVideo() {
   const { modelStatus, rawLandmarks, toggleTracking, videoRef } =
     useHandTracking();
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number>(0);
 
   function draw() {
     if (!canvasRef.current || !videoRef.current) return;

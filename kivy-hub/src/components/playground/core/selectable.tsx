@@ -1,12 +1,12 @@
 import {
   HTMLAttributes,
   MouseEvent,
-  MutableRefObject,
   ReactNode,
+  RefObject,
   useRef,
   useState
 } from 'react';
-import { cn } from '../../lib/utils.ts';
+import { cn } from '@/lib/utils';
 
 export default function ({
   children,
@@ -19,7 +19,7 @@ export default function ({
   ...props
 }: HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
-  refObject?: MutableRefObject<HTMLDivElement>;
+  refObject?: RefObject<HTMLDivElement>;
   onPress?: (event: MouseEvent) => void | Promise<void>;
   delay?: number;
   forceSelect?: boolean;
@@ -31,14 +31,14 @@ export default function ({
 
   const selectingRef = useRef<boolean>(false);
 
-  const timeOutRef = useRef<NodeJS.Timeout | undefined>();
+  const timeOutRef = useRef<NodeJS.Timeout | undefined>(null);
 
   return (
     <div
       data-can-interact=''
       {...props}
       ref={refObject}
-      className={cn('select-none flex ', props.className)}
+      className={cn('flex select-none', props.className)}
       style={{
         boxShadow: showFeedback
           ? selected || forceSelect
