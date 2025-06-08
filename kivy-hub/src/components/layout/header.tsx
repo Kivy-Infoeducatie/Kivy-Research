@@ -1,59 +1,46 @@
-import Link from 'next/link';
-import { BookOpen, Home, LogIn, Play, UserPlus } from 'lucide-react';
+'use client';
 
-const navigation = [
-  { name: 'Home', href: '/', icon: Home },
-  { name: 'Documentation', href: '/docs', icon: BookOpen },
-  { name: 'Playground', href: '/playground', icon: Play }
-];
-
-const authNavigation = [
-  { name: 'Login', href: '/login', icon: LogIn },
-  { name: 'Register', href: '/register', icon: UserPlus }
-];
+import { TabNavigation, TabNavigationItem } from '@/components/tab-navigation';
+import { KivyButton } from '@/components/buttons/kivy-button';
+import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 export function Header() {
+  const pathname = usePathname();
+
   return (
-    <header className='border-b bg-white'>
-      <nav className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-        <div className='flex h-16 items-center justify-between'>
-          <div className='flex items-center'>
-            <Link href='/' className='flex items-center'>
-              <span className='text-2xl font-bold text-indigo-600'>Kivy</span>
-            </Link>
-          </div>
-
-          <div className='hidden md:block'>
-            <div className='ml-10 flex items-center space-x-4'>
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className='flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600'
-                >
-                  <item.icon className='mr-2 h-5 w-5' />
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div className='hidden md:block'>
-            <div className='ml-10 flex items-center space-x-4'>
-              {authNavigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className='flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600'
-                >
-                  <item.icon className='mr-2 h-5 w-5' />
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <motion.header
+      className={cn(
+        'sticky z-50 flex items-center justify-between gap-8 self-center bg-[#414141]/20 p-3 backdrop-blur-[48px]'
+      )}
+      layout='size'
+      animate={{
+        top: pathname === '/' ? '36px' : '0px',
+        borderRadius: pathname === '/' ? '9999px' : '0px',
+        border: pathname === '/' ? '1px solid #414141' : 'none',
+        width: '100dvw',
+        maxWidth: pathname === '/' ? 'min-content' : '100dvw'
+      }}
+    >
+      <TabNavigation>
+        <TabNavigationItem
+          key='home'
+          url='/'
+          className='flex items-center gap-2'
+        >
+          Home
+        </TabNavigationItem>
+        <TabNavigationItem
+          key='documentation'
+          url='/docs/getting-started/introduction'
+        >
+          Documentation
+        </TabNavigationItem>
+      </TabNavigation>
+      <KivyButton href='/playground' className='bg-[#151515]'>
+        Playground
+      </KivyButton>
+    </motion.header>
   );
 }

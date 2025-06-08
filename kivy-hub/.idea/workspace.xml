@@ -4,36 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Switched to NextJS project">
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/footer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/playground/overlays/range-overlay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(auth)/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/(auth)/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(auth)/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/(auth)/register/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/about/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/about/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/contact/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/contact/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/docs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/docs/page.tsx" afterDir="false" />
+    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Added .idea">
+      <change afterPath="$PROJECT_DIR$/public/hero-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/ai-architecture/encoders/nutriment/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/buttons/kivy-button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/buttons/learn-button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/cards/hero-card.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/demo/hand-recognition-demo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/tab-navigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bun.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bun.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(site)/docs/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(site)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(site)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/movable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/movable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/overlay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/core/widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/widget.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dev/hand-cursor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/hand-cursor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dev/hand-tracking-video.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/hand-tracking-video.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dev/widget-stack-debugger.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/widget-stack-debugger.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/root-layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/overlays/calibration-overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/overlays/calibration-overlay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/overlays/measure-overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/overlays/measure-overlay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/overlays/range-overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/overlays/select-overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/overlays/select-overlay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/overlays/slicing-overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/overlays/slicing-overlay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/widgets/home-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/widgets/main-selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/main-selectable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/widgets/menu-config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/menu-config.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/widgets/menu-items.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/menu-items.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/widgets/timer/timer-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/timer/timer-menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/header.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,11 +80,11 @@
       <recent name="$PROJECT_DIR$/kivy-hub/src/app/about" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/(site)/docs/ai-arhitecture/encoders" />
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/src/app/(site)" />
       <recent name="$PROJECT_DIR$/src/components/playground" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/kivy-hub/public" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -142,6 +131,8 @@
       <workItem from="1749206788372" duration="3593000" />
       <workItem from="1749241126558" duration="1673000" />
       <workItem from="1749290874418" duration="4000" />
+      <workItem from="1749297042936" duration="5381000" />
+      <workItem from="1749401337585" duration="8315000" />
     </task>
     <task id="LOCAL-00001" summary="Initialized and created basic hand tracking input">
       <option name="closed" value="true" />
@@ -175,7 +166,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749206607393</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Switched to NextJS project">
+      <option name="closed" value="true" />
+      <created>1749297082766</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749297082766</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added .idea">
+      <option name="closed" value="true" />
+      <created>1749297092560</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1749297092560</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +193,7 @@
     <MESSAGE value="Improved UI, timer and cutter components and refactored project structure" />
     <MESSAGE value="Made templates for the following pages: about, contact, docs, home, login, register and root layout for header and footer" />
     <MESSAGE value="Switched to NextJS project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Switched to NextJS project" />
+    <MESSAGE value="Added .idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added .idea" />
   </component>
 </project>
