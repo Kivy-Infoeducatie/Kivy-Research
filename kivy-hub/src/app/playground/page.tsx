@@ -7,6 +7,7 @@ import {
 import { HandTrackingVideo } from '@/components/playground/dev/hand-tracking-video';
 import { HandCursor } from '@/components/playground/dev/hand-cursor';
 import Selectable from '@/components/playground/core/selectable';
+import { useMouseSupport } from '@/lib/hand-tracking/use-mouse-support';
 
 function Playground() {
   const { toggleTracking } = useHandTracking();
@@ -20,6 +21,12 @@ function Playground() {
         onPrimaryPress={() => {
           console.log('Primary press detected');
         }}
+        onSecondaryPress={() => {
+          console.log('Secondary press detected');
+        }}
+        onTertiaryPress={() => {
+          console.log('Tertiary press detected');
+        }}
       >
         <div className='rounded bg-white p-4 shadow-md'>
           <h2 className='text-lg font-bold'>Widget</h2>
@@ -31,6 +38,8 @@ function Playground() {
 }
 
 export default function () {
+  useMouseSupport();
+
   return (
     <HandTrackingProvider>
       <Playground />

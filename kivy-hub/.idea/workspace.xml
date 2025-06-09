@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Added multiple input ways">
+    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Fixed touch up not working when switching between events">
+      <change afterPath="$PROJECT_DIR$/src/lib/hand-tracking/use-mouse-support.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/playground/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/playground/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playground/dev/hand-cursor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/hand-cursor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/event-propagation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hand-tracking/event-propagation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/hand-tracking-context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hand-tracking/hand-tracking-context.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/core/movable.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/core/overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/overlay.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749467075343</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fixed touch up not working when switching between events">
+      <option name="closed" value="true" />
+      <created>1749469439664</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1749469439664</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +258,7 @@
     <MESSAGE value="Made codebase compatible" />
     <MESSAGE value="Added docs" />
     <MESSAGE value="Added multiple input ways" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added multiple input ways" />
+    <MESSAGE value="Fixed touch up not working when switching between events" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed touch up not working when switching between events" />
   </component>
 </project>
