@@ -1,9 +1,10 @@
-import { MutableRefObject } from 'react';
+import { RefObject } from 'react';
 
 export function eventPropagation(
-  hoveredElements: MutableRefObject<Set<Element>>,
+  hoveredElements: RefObject<Set<Element>>,
   x: number,
-  y: number
+  y: number,
+  eventType: 'primary-touch' | 'secondary-touch' | 'tertiary-touch'
 ) {
   const elementsAtPoint = document
     .elementsFromPoint(x, y)
@@ -14,9 +15,7 @@ export function eventPropagation(
   elementsAtPoint.forEach((element) => {
     if (!hoveredElements.current.has(element)) {
       element.dispatchEvent(
-        new MouseEvent('mousedown', {
-          clientX: x,
-          clientY: y,
+        new CustomEvent(`${eventType}-down`, {
           bubbles: true,
           cancelable: true
         })
@@ -27,9 +26,7 @@ export function eventPropagation(
   hoveredElements.current.forEach((element) => {
     if (!currentElementsSet.has(element)) {
       element.dispatchEvent(
-        new MouseEvent('mouseup', {
-          clientX: x,
-          clientY: y,
+        new CustomEvent(`${eventType}-up`, {
           bubbles: true,
           cancelable: true
         })

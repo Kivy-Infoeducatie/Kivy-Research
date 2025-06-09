@@ -84,6 +84,7 @@ export function drawLandmarks(
 
     const isTip = [4, 8, 12, 16, 20].includes(i);
     const radius = isTip ? tipRadius : baseRadius;
+    const color = i === 8 ? '#FF0000' : '#FFFFFFE5';
 
     ctx.fillStyle = '#00000080';
     ctx.beginPath();

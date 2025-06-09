@@ -3,7 +3,7 @@ import { useHandTracking } from '@/lib/hand-tracking/hand-tracking-context';
 import { drawLandmarks } from '@/lib/hand-tracking/draw-landmarks';
 
 export function HandTrackingVideo() {
-  const { modelStatus, rawLandmarks, toggleTracking, videoRef } =
+  const { modelStatus, rawLandmarks, toggleTracking, videoRef, handEvents } =
     useHandTracking();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>(0);
@@ -43,7 +43,7 @@ export function HandTrackingVideo() {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [rawLandmarks]);
+  }, [rawLandmarks, handEvents]);
 
   return (
     <div className='rounded-full'>

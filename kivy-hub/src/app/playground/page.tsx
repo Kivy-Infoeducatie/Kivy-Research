@@ -16,7 +16,17 @@ function Playground() {
       <HandTrackingVideo />
       <button onClick={toggleTracking}>Toggle</button>
       <HandCursor />
-      <Selectable>
+      <Selectable
+        onPrimaryPress={() => {
+          console.log('Primary press detected');
+        }}
+        onSecondaryPress={() => {
+          console.log('Secondary press detected');
+        }}
+        onTertiaryPress={() => {
+          console.log('Tertiary press detected');
+        }}
+      >
         <div className='rounded bg-white p-4 shadow-md'>
           <h2 className='text-lg font-bold'>Widget</h2>
           <p>This is a movable widget.</p>

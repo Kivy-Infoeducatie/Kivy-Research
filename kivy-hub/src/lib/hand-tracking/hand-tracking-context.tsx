@@ -1,7 +1,7 @@
 import {
   createContext,
-  MutableRefObject,
   ReactNode,
+  RefObject,
   useContext,
   useEffect,
   useRef,
@@ -14,13 +14,19 @@ import {
   parseLandmarksArray
 } from '@/lib/hand-tracking/format-landmarks';
 import { eventPropagation } from '@/lib/hand-tracking/event-propagation';
+import {
+  getDistance,
+  SECONDARY_TOUCH_DISTANCE,
+  TERTIARY_TOUCH_DISTANCE
+} from '@/lib/math';
 
 interface HandTrackingContextInterface {
   handTracker: HandLandmarker | null;
   modelStatus: ModelStatus;
-  videoRef: MutableRefObject<any>;
+  videoRef: RefObject<any>;
   rawLandmarks: NormalizedLandmark[][];
   landmarks: HandLandmarks[];
+  handEvents: HandEvent[];
 
   initializeHandLandMarker(): Promise<void>;
 
@@ -47,6 +53,12 @@ enum ModelStatus {
   ERROR = 'error'
 }
 
+export enum HandEvent {
+  PRIMARY_TOUCH,
+  SECONDARY_TOUCH,
+  TERTIARY_TOUCH
+}
+
 export function HandTrackingProvider({ children }: { children: ReactNode }) {
   const [modelStatus, setModelStatus] = useState<ModelStatus>(
     ModelStatus.LOADING
@@ -58,6 +70,8 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
 
   const [rawLandmarks, setRawLandmarks] = useState<NormalizedLandmark[][]>([]);
   const [landmarks, setLandmarks] = useState<HandLandmarks[]>([]);
+
+  const [handEvents, setHandEvents] = useState<HandEvent[]>([]);
 
   const videoRef = useRef(null);
 
@@ -113,13 +127,46 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
 
         setLandmarks(parsedLandmarks);
 
-        if (parsedLandmarks.length > 0) {
-          eventPropagation(
-            hoveredElements,
-            parsedLandmarks[0].index.tip.x * 1000,
-            parsedLandmarks[0].index.tip.y * 1000
-          );
+        const events: HandEvent[] = [];
+
+        for (const landmark of parsedLandmarks) {
+          if (
+            getDistance(landmark.index.tip, landmark.thumb.tip) <
+            SECONDARY_TOUCH_DISTANCE
+          ) {
+            events.push(HandEvent.SECONDARY_TOUCH);
+
+            eventPropagation(
+              hoveredElements,
+              landmark.index.tip.x * 1000,
+              landmark.index.tip.y * 1000,
+              'secondary-touch'
+            );
+          } else if (
+            getDistance(landmark.index.tip, landmark.middle.tip) <
+            TERTIARY_TOUCH_DISTANCE
+          ) {
+            events.push(HandEvent.TERTIARY_TOUCH);
+
+            eventPropagation(
+              hoveredElements,
+              landmark.index.tip.x * 1000,
+              landmark.index.tip.y * 1000,
+              'tertiary-touch'
+            );
+          } else {
+            events.push(HandEvent.PRIMARY_TOUCH);
+
+            eventPropagation(
+              hoveredElements,
+              landmark.index.tip.x * 1000,
+              landmark.index.tip.y * 1000,
+              'primary-touch'
+            );
+          }
         }
+
+        setHandEvents(events);
       }
     }
 
@@ -183,7 +230,8 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
         toggleTracking,
         videoRef,
         rawLandmarks,
-        landmarks
+        landmarks,
+        handEvents
       }}
     >
       {children}

@@ -1,7 +1,17 @@
-import { useHandTracking } from '@/lib/hand-tracking/hand-tracking-context';
+import {
+  HandEvent,
+  useHandTracking
+} from '@/lib/hand-tracking/hand-tracking-context';
+import { cn } from '@/lib/utils';
+
+const colors = {
+  [HandEvent.PRIMARY_TOUCH]: 'border-blue-500 bg-blue-500/20',
+  [HandEvent.SECONDARY_TOUCH]: 'border-green-500 bg-green-500/20',
+  [HandEvent.TERTIARY_TOUCH]: 'border-yellow-500 bg-yellow-500/20'
+};
 
 export function HandCursor() {
-  const { landmarks } = useHandTracking();
+  const { landmarks, handEvents } = useHandTracking();
 
   return (
     <>
@@ -13,7 +23,13 @@ export function HandCursor() {
             transform: `translate(${landmark.index.tip.x * 1000 - 15}px, ${landmark.index.tip.y * 1000 - 15}px)`
           }}
         >
-          <div className='h-8 w-8 rounded-full border-4 border-blue-500 bg-blue-500/20 shadow-md backdrop-blur-sm' />
+          <div
+            className={cn(
+              'h-8 w-8 rounded-full border-4 shadow-md backdrop-blur-sm',
+              colors[handEvents[index]]
+            )}
+          />
+          {JSON.stringify(handEvents)}
         </div>
       ))}
     </>

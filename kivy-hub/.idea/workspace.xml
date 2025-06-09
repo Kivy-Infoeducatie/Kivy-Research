@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Added base presentation pages">
+    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Added docs">
+      <change afterPath="$PROJECT_DIR$/src/lib/math.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/playground/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/playground/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/dev/hand-cursor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/hand-cursor.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/dev/hand-tracking-video.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/hand-tracking-video.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/contexts/kivy-provider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/draw-landmarks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hand-tracking/draw-landmarks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/event-propagation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hand-tracking/event-propagation.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/hand-tracking-context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hand-tracking/hand-tracking-context.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +25,11 @@
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/exportToHTML" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -35,6 +44,9 @@
     &quot;accountId&quot;: &quot;552a6d36-9f16-4320-b237-73eb120a10bd&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -45,37 +57,37 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/kivy-hub&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "wip",
+    "last_opened_file_path": "/Users/karo/Developer/Kivy/kivy-hub/src/app/playground",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/karo/Developer/Kivy/kivy-hub/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/karo/Developer/Kivy/kivy-hub/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/playground" />
+      <recent name="$PROJECT_DIR$/src/app/(site)/docs/recipe-embeddings/architecture" />
+      <recent name="$PROJECT_DIR$/src/app/(site)/docs/recipe-embeddings/data" />
+      <recent name="$PROJECT_DIR$/src/app/(site)/docs/getting-started/about-the-project/scope" />
       <recent name="$PROJECT_DIR$/kivy-hub" />
-      <recent name="$PROJECT_DIR$/kivy-hub/src/app/playground" />
-      <recent name="$PROJECT_DIR$/kivy-hub/src/app/docs" />
-      <recent name="$PROJECT_DIR$/kivy-hub/src/app/contact" />
-      <recent name="$PROJECT_DIR$/kivy-hub/src/app/about" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/(site)/docs/getting-started" />
       <recent name="$PROJECT_DIR$/src/app/(site)/docs/ai-arhitecture/encoders" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/src/app/(site)" />
-      <recent name="$PROJECT_DIR$/src/components/playground" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -124,6 +136,7 @@
       <workItem from="1749290874418" duration="4000" />
       <workItem from="1749297042936" duration="5381000" />
       <workItem from="1749401337585" duration="9086000" />
+      <workItem from="1749415598873" duration="4071000" />
     </task>
     <task id="LOCAL-00001" summary="Initialized and created basic hand tracking input">
       <option name="closed" value="true" />
@@ -181,7 +194,31 @@
       <option name="project" value="LOCAL" />
       <updated>1749409948920</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added old code for now">
+      <option name="closed" value="true" />
+      <created>1749415829861</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1749415829862</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Made codebase compatible">
+      <option name="closed" value="true" />
+      <created>1749417422747</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1749417422747</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added docs">
+      <option name="closed" value="true" />
+      <created>1749419124865</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1749419124865</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +242,9 @@
     <MESSAGE value="Switched to NextJS project" />
     <MESSAGE value="Added .idea" />
     <MESSAGE value="Added base presentation pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added base presentation pages" />
+    <MESSAGE value="Added old code for now" />
+    <MESSAGE value="Made codebase compatible" />
+    <MESSAGE value="Added docs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added docs" />
   </component>
 </project>
