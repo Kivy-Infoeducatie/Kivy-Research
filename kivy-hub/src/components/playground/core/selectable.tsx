@@ -38,7 +38,6 @@ export default function Selectable({
     const el = divRef.current;
     if (!el) return;
 
-    // Create stable handler references
     const onPrimaryDown = (e: Event) => {
       if (stopPropagation) e.stopPropagation();
       setSelecting(true);
@@ -54,7 +53,6 @@ export default function Selectable({
 
     const onPrimaryUp = (e: Event) => {
       if (stopPropagation) e.stopPropagation();
-      console.log('cleared');
       if (timeOutRef.current) clearTimeout(timeOutRef.current);
       selectingRef.current = false;
       setSelecting(false);
@@ -103,22 +101,38 @@ export default function Selectable({
       setSelected(-1);
     };
 
-    el.addEventListener('primary-touch-down', onPrimaryDown);
-    el.addEventListener('primary-touch-up', onPrimaryUp);
-    el.addEventListener('secondary-touch-down', onSecondaryDown);
-    el.addEventListener('secondary-touch-up', onSecondaryUp);
-    el.addEventListener('tertiary-touch-down', onTertiaryDown);
-    el.addEventListener('tertiary-touch-up', onTertiaryUp);
+    if (onPrimaryPress) {
+      el.addEventListener('primary-touch-down', onPrimaryDown);
+      el.addEventListener('primary-touch-up', onPrimaryUp);
+    }
+
+    if (onSecondaryPress) {
+      el.addEventListener('secondary-touch-down', onSecondaryDown);
+      el.addEventListener('secondary-touch-up', onSecondaryUp);
+    }
+
+    if (onTertiaryPress) {
+      el.addEventListener('tertiary-touch-down', onTertiaryDown);
+      el.addEventListener('tertiary-touch-up', onTertiaryUp);
+    }
 
     return () => {
-      el.removeEventListener('primary-touch-down', onPrimaryDown);
-      el.removeEventListener('primary-touch-up', onPrimaryUp);
-      el.removeEventListener('secondary-touch-down', onSecondaryDown);
-      el.removeEventListener('secondary-touch-up', onSecondaryUp);
-      el.removeEventListener('tertiary-touch-down', onTertiaryDown);
-      el.removeEventListener('tertiary-touch-up', onTertiaryUp);
+      if (onPrimaryPress) {
+        el.removeEventListener('primary-touch-down', onPrimaryDown);
+        el.removeEventListener('primary-touch-up', onPrimaryUp);
+      }
+
+      if (onSecondaryPress) {
+        el.removeEventListener('secondary-touch-down', onSecondaryDown);
+        el.removeEventListener('secondary-touch-up', onSecondaryUp);
+      }
+
+      if (onTertiaryPress) {
+        el.removeEventListener('tertiary-touch-down', onTertiaryDown);
+        el.removeEventListener('tertiary-touch-up', onTertiaryUp);
+      }
+
       if (timeOutRef.current) clearTimeout(timeOutRef.current);
-      console.log('Cleanup called, clearing timeout');
     };
   }, [delay, stopPropagation]);
 

@@ -20,7 +20,7 @@ export function HandCursor() {
           key={index}
           className={`pointer-events-none fixed top-0 left-0 z-50 transition-transform duration-75 ease-linear`}
           style={{
-            transform: `translate(${landmark.index.tip.x * 1000 - 15}px, ${landmark.index.tip.y * 1000 - 15}px)`
+            transform: `translate(${landmark.index.tip.x * window.innerWidth - 15}px, ${landmark.index.tip.y * window.innerHeight - 15}px)`
           }}
         >
           <div
@@ -29,7 +29,6 @@ export function HandCursor() {
               colors[handEvents[index]]
             )}
           />
-          {JSON.stringify(handEvents)}
         </div>
       ))}
     </>

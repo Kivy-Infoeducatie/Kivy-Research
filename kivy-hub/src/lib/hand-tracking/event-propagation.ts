@@ -1,10 +1,18 @@
 import { RefObject } from 'react';
+import { HandEvent } from '@/lib/hand-tracking/hand-tracking-context';
+
+const handEvents = {
+  [0]: 'primary-touch',
+  [1]: 'secondary-touch',
+  [2]: 'tertiary-touch'
+};
 
 export function eventPropagation(
   hoveredElements: RefObject<Set<Element>>,
+  hoveredElementEvents: RefObject<Map<Element, HandEvent>>,
   x: number,
   y: number,
-  eventType: 'primary-touch' | 'secondary-touch' | 'tertiary-touch'
+  eventType: HandEvent
 ) {
   const elementsAtPoint = document
     .elementsFromPoint(x, y)
@@ -14,8 +22,9 @@ export function eventPropagation(
 
   elementsAtPoint.forEach((element) => {
     if (!hoveredElements.current.has(element)) {
+      hoveredElementEvents.current.set(element, eventType);
       element.dispatchEvent(
-        new CustomEvent(`${eventType}-down`, {
+        new CustomEvent(`${handEvents[eventType]}-down`, {
           bubbles: true,
           cancelable: true
         })
@@ -26,11 +35,22 @@ export function eventPropagation(
   hoveredElements.current.forEach((element) => {
     if (!currentElementsSet.has(element)) {
       element.dispatchEvent(
-        new CustomEvent(`${eventType}-up`, {
+        new CustomEvent(`${handEvents[eventType]}-up`, {
           bubbles: true,
           cancelable: true
         })
       );
+    } else if (hoveredElementEvents.current.get(element) !== eventType) {
+      element.dispatchEvent(
+        new CustomEvent(
+          `${handEvents[hoveredElementEvents.current.get(element)!]}-up`,
+          {
+            bubbles: true,
+            cancelable: true
+          }
+        )
+      );
+      hoveredElementEvents.current.delete(element);
     }
   });
 

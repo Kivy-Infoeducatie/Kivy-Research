@@ -106,6 +106,7 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
   let animationFrameID = 0;
 
   const hoveredElements = useRef<Set<Element>>(new Set<Element>());
+  const hoveredElementTypes = useRef<Map<Element, number>>(new Map());
 
   async function predictHandMarks() {
     if (!handTracker || !videoRef.current || !isTracking) {
@@ -138,9 +139,10 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
 
             eventPropagation(
               hoveredElements,
-              landmark.index.tip.x * 1000,
-              landmark.index.tip.y * 1000,
-              'secondary-touch'
+              hoveredElementTypes,
+              landmark.index.tip.x * window.innerWidth,
+              landmark.index.tip.y * window.innerHeight,
+              HandEvent.SECONDARY_TOUCH
             );
           } else if (
             getDistance(landmark.index.tip, landmark.middle.tip) <
@@ -150,18 +152,20 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
 
             eventPropagation(
               hoveredElements,
-              landmark.index.tip.x * 1000,
-              landmark.index.tip.y * 1000,
-              'tertiary-touch'
+              hoveredElementTypes,
+              landmark.index.tip.x * window.innerWidth,
+              landmark.index.tip.y * window.innerHeight,
+              HandEvent.TERTIARY_TOUCH
             );
           } else {
             events.push(HandEvent.PRIMARY_TOUCH);
 
             eventPropagation(
               hoveredElements,
-              landmark.index.tip.x * 1000,
-              landmark.index.tip.y * 1000,
-              'primary-touch'
+              hoveredElementTypes,
+              landmark.index.tip.x * window.innerWidth,
+              landmark.index.tip.y * window.innerHeight,
+              HandEvent.PRIMARY_TOUCH
             );
           }
         }
