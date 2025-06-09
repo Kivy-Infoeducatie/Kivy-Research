@@ -10,15 +10,15 @@ import {
 import { FilesetResolver, HandLandmarker } from '@mediapipe/tasks-vision';
 import { NormalizedLandmark } from '@mediapipe/hands';
 import {
-  HandLandmarks,
-  parseLandmarksArray
-} from '@/lib/hand-tracking/format-landmarks';
-import { eventPropagation } from '@/lib/hand-tracking/event-propagation';
-import {
   getDistance,
   SECONDARY_TOUCH_DISTANCE,
   TERTIARY_TOUCH_DISTANCE
 } from '@/lib/math';
+import {
+  HandLandmarks,
+  parseLandmarksArray
+} from '@/lib/core/hand-tracking/format-landmarks';
+import { eventPropagation } from '@/lib/core/hand-tracking/event-propagation';
 
 interface HandTrackingContextInterface {
   handTracker: HandLandmarker | null;
@@ -38,13 +38,15 @@ const handTrackingContext = createContext<HandTrackingContextInterface | null>(
 );
 
 export function useHandTracking() {
-  if (!handTrackingContext) {
+  const ctx = useContext(handTrackingContext)!;
+
+  if (!ctx) {
     throw new Error(
       'useHandTracking must be used within a HandTrackingProvider'
     );
   }
 
-  return useContext(handTrackingContext)!;
+  return ctx;
 }
 
 enum ModelStatus {
@@ -130,7 +132,9 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
 
         const events: HandEvent[] = [];
 
-        for (const landmark of parsedLandmarks) {
+        for (let i = 0; i < parsedLandmarks.length; i++) {
+          const landmark = parsedLandmarks[i];
+
           if (
             getDistance(landmark.index.tip, landmark.thumb.tip) <
             SECONDARY_TOUCH_DISTANCE
@@ -142,7 +146,8 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
               hoveredElementTypes,
               landmark.index.tip.x * window.innerWidth,
               landmark.index.tip.y * window.innerHeight,
-              HandEvent.SECONDARY_TOUCH
+              HandEvent.SECONDARY_TOUCH,
+              i
             );
           } else if (
             getDistance(landmark.index.tip, landmark.middle.tip) <
@@ -155,7 +160,8 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
               hoveredElementTypes,
               landmark.index.tip.x * window.innerWidth,
               landmark.index.tip.y * window.innerHeight,
-              HandEvent.TERTIARY_TOUCH
+              HandEvent.TERTIARY_TOUCH,
+              i
             );
           } else {
             events.push(HandEvent.PRIMARY_TOUCH);
@@ -165,7 +171,8 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
               hoveredElementTypes,
               landmark.index.tip.x * window.innerWidth,
               landmark.index.tip.y * window.innerHeight,
-              HandEvent.PRIMARY_TOUCH
+              HandEvent.PRIMARY_TOUCH,
+              i
             );
           }
         }

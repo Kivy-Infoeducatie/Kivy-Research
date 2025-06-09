@@ -1,13 +1,15 @@
 'use client';
 
-import {
-  HandTrackingProvider,
-  useHandTracking
-} from '@/lib/hand-tracking/hand-tracking-context';
 import { HandTrackingVideo } from '@/components/playground/dev/hand-tracking-video';
 import { HandCursor } from '@/components/playground/dev/hand-cursor';
 import Selectable from '@/components/playground/core/selectable';
-import { useMouseSupport } from '@/lib/hand-tracking/use-mouse-support';
+import { useMouseSupport } from '@/lib/core/hand-tracking/use-mouse-support';
+import {
+  HandTrackingProvider,
+  useHandTracking
+} from '@/lib/core/hand-tracking/hand-tracking-context';
+import { MultiProvider } from '@/components/playground/misc/multi-provider';
+import { WidgetsProvider } from '@/lib/core/widgets/widget-context';
 
 function Playground() {
   const { toggleTracking } = useHandTracking();
@@ -41,8 +43,8 @@ export default function () {
   useMouseSupport();
 
   return (
-    <HandTrackingProvider>
+    <MultiProvider providers={[HandTrackingProvider, WidgetsProvider]}>
       <Playground />
-    </HandTrackingProvider>
+    </MultiProvider>
   );
 }

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { HandEvent } from '@/lib/hand-tracking/hand-tracking-context';
+import { HandEvent } from '@/lib/core/hand-tracking/hand-tracking-context';
 
 const handEvents = {
   [0]: 'primary-touch',
@@ -25,7 +25,12 @@ function dispatchEventAtPoint(
         `${handEvents[eventType as keyof typeof handEvents]}-${eventDirective}`,
         {
           bubbles: true,
-          cancelable: true
+          cancelable: true,
+          detail: {
+            clientX: x,
+            clientY: y,
+            type: 'mouse'
+          }
         }
       )
     );

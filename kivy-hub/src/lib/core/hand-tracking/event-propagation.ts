@@ -1,5 +1,5 @@
 import { RefObject } from 'react';
-import { HandEvent } from '@/lib/hand-tracking/hand-tracking-context';
+import { HandEvent } from '@/lib/core/hand-tracking/hand-tracking-context';
 
 const handEvents = {
   [0]: 'primary-touch',
@@ -12,7 +12,8 @@ export function eventPropagation(
   hoveredElementEvents: RefObject<Map<Element, HandEvent>>,
   x: number,
   y: number,
-  eventType: HandEvent
+  eventType: HandEvent,
+  handIndex: number
 ) {
   const elementsAtPoint = document
     .elementsFromPoint(x, y)
@@ -26,7 +27,13 @@ export function eventPropagation(
       element.dispatchEvent(
         new CustomEvent(`${handEvents[eventType]}-down`, {
           bubbles: true,
-          cancelable: true
+          cancelable: true,
+          detail: {
+            clientX: x,
+            clientY: y,
+            type: 'hand',
+            handIndex
+          }
         })
       );
     }
@@ -37,7 +44,13 @@ export function eventPropagation(
       element.dispatchEvent(
         new CustomEvent(`${handEvents[eventType]}-up`, {
           bubbles: true,
-          cancelable: true
+          cancelable: true,
+          detail: {
+            clientX: x,
+            clientY: y,
+            type: 'hand',
+            handIndex
+          }
         })
       );
     } else if (hoveredElementEvents.current.get(element) !== eventType) {

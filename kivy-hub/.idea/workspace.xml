@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Fixed touch up not working when switching between events">
-      <change afterPath="$PROJECT_DIR$/src/lib/hand-tracking/use-mouse-support.tsx" afterDir="false" />
+    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Added mouse support and made little tweaks">
+      <change afterPath="$PROJECT_DIR$/src/components/playground/misc/multi-provider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/core/widgets/widget-context.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/playground/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/playground/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playground/core/movable.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playground/core/overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/overlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/core/widget.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/home-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contexts/timer-context.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contexts/widget-context.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/use-input.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/use-widget.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/draw-landmarks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/draw-landmarks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/event-propagation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/event-propagation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/format-landmarks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/format-landmarks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/hand-tracking-context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/hand-tracking-context.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/use-mouse-support.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/use-mouse-support.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,11 +88,11 @@
       <recent name="$PROJECT_DIR$/kivy-hub" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/lib/core" />
       <recent name="$PROJECT_DIR$/src/app/(site)/docs/getting-started" />
       <recent name="$PROJECT_DIR$/src/app/(site)/docs/ai-arhitecture/encoders" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/app" />
-      <recent name="$PROJECT_DIR$/src/app/(site)" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -230,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749469439664</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added mouse support and made little tweaks">
+      <option name="closed" value="true" />
+      <created>1749470803726</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1749470803726</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +276,7 @@
     <MESSAGE value="Added docs" />
     <MESSAGE value="Added multiple input ways" />
     <MESSAGE value="Fixed touch up not working when switching between events" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed touch up not working when switching between events" />
+    <MESSAGE value="Added mouse support and made little tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added mouse support and made little tweaks" />
   </component>
 </project>
