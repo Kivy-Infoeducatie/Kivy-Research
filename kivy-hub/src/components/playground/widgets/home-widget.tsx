@@ -98,7 +98,6 @@ export default function HomeWidget() {
         icon={displayIcon}
         showBack={!isRootScreen}
       />
-
       <MenuItems
         isOpen={shouldShowMenu}
         menuItems={getMenuItems()}

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { cn } from '../../lib/utils.ts';
-import Selectable from '../core/selectable.tsx';
+import Selectable from '@/components/playground/core/selectable';
+import { cn } from '@/lib/utils';
 
 interface MainSelectableProps {
   onPress: () => void;
@@ -17,26 +17,26 @@ export default function MainSelectable({
 }: MainSelectableProps) {
   return (
     <Selectable
-      onPress={onPress}
+      onPrimaryPress={onPress}
       className={cn(
-        'w-72 h-72 bg-white rounded-full flex flex-col items-center justify-center text-white z-10 text-4xl relative'
+        'relative z-10 flex h-72 w-72 flex-col items-center justify-center rounded-full bg-white text-4xl text-white'
       )}
     >
       {icon && <div className='absolute inset-0 flex items-center'>{icon}</div>}
       <img
         src='/mesh-gradient.png'
         alt='Kivy Logo'
-        className='absolute min-w-[45rem] min-h-[45rem]'
+        className='absolute min-h-[45rem] min-w-[45rem]'
       />
       {title ? (
-        <span className='text-black text-6xl font-bold'>{title}</span>
+        <span className='text-6xl font-bold text-black'>{title}</span>
       ) : (
         <img src='/kivy-logo.png' alt='Kivy Logo' className='size-52' />
       )}
       {showBack && (
-        <div className='flex items-center justify-center gap-3 mt-5'>
+        <div className='mt-5 flex items-center justify-center gap-3'>
           <i className='fa fa-arrow-left text-4xl text-black'></i>
-          <span className='text-black text-4xl font-bold'>Back</span>
+          <span className='text-4xl font-bold text-black'>Back</span>
         </div>
       )}
     </Selectable>

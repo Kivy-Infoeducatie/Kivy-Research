@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
-import { useHandTracking } from '@/lib/hand-tracking/hand-tracking-context';
-import { drawLandmarks } from '@/lib/hand-tracking/draw-landmarks';
+import { useHandTracking } from '@/lib/core/hand-tracking/hand-tracking-context';
+import { drawLandmarks } from '@/lib/core/hand-tracking/draw-landmarks';
+import Selectable from '@/components/playground/core/selectable';
 
 export function HandTrackingVideo() {
   const { modelStatus, rawLandmarks, toggleTracking, videoRef, handEvents } =
@@ -46,8 +47,8 @@ export function HandTrackingVideo() {
   }, [rawLandmarks, handEvents]);
 
   return (
-    <div className='rounded-full'>
+    <Selectable onSecondaryPress={() => {}} className='max-w-min'>
       <canvas ref={canvasRef} width={640} height={480} />
-    </div>
+    </Selectable>
   );
 }

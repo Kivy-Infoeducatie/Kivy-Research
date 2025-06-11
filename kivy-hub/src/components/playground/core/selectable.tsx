@@ -13,9 +13,9 @@ type HoldableProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 const colors = {
-  0: 'blue',
-  1: 'green',
-  2: 'yellow'
+  0: 'custom-blue-shadow',
+  1: 'custom-green-shadow',
+  2: 'custom-yellow-shadow'
 };
 
 export default function Selectable({
@@ -141,16 +141,18 @@ export default function Selectable({
       data-can-interact=''
       {...props}
       ref={divRef}
-      className={cn('flex select-none', props.className)}
-      style={{
-        boxShadow: showFeedback
+      className={cn(
+        'flex select-none',
+        props.className,
+        showFeedback
           ? selected !== -1
-            ? `inset 0 0 40px ${colors[selected as keyof typeof colors]}`
+            ? colors[selected as keyof typeof colors]
             : selecting
-              ? 'inset 0 0 40px white'
-              : 'none'
-          : 'none',
-        transition: 'all 0.2s ease-in-out',
+              ? 'custom-white-shadow'
+              : ''
+          : ''
+      )}
+      style={{
         ...props.style
       }}
     >

@@ -1,7 +1,7 @@
 import {
   HandEvent,
   useHandTracking
-} from '@/lib/hand-tracking/hand-tracking-context';
+} from '@/lib/core/hand-tracking/hand-tracking-context';
 import { cn } from '@/lib/utils';
 
 const colors = {

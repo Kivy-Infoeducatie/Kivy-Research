@@ -4,22 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Added mouse support and made little tweaks">
-      <change afterPath="$PROJECT_DIR$/src/components/playground/misc/multi-provider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/core/widgets/widget-context.tsx" afterDir="false" />
+    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Refacotring and added multi provider for better code organization.">
+      <change afterPath="$PROJECT_DIR$/src/lib/core/plugins/plugin.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/core/screens/screen-context.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/playground/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/playground/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playground/core/widget.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/dev/hand-cursor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/hand-cursor.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/dev/hand-tracking-video.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/hand-tracking-video.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/home-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contexts/timer-context.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contexts/widget-context.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/use-input.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/use-widget.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/draw-landmarks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/draw-landmarks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/event-propagation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/event-propagation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/format-landmarks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/format-landmarks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/hand-tracking-context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/hand-tracking-context.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hand-tracking/use-mouse-support.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/use-mouse-support.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/main-selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/main-selectable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/menu-items.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/menu-items.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/core/widgets/widget-context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/widgets/widget-context.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,23 +59,25 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "wip",
-    "last_opened_file_path": "/Users/karo/Developer/Kivy/kivy-hub/src/app/playground",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/karo/Developer/Kivy/kivy-hub/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Users/karo/Developer/Kivy/kivy-hub/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;wip&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/src/app/playground&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/playground" />
@@ -95,10 +94,25 @@
       <recent name="$PROJECT_DIR$/src/app" />
     </key>
   </component>
+  <component name="RunManager" selected="npm.Next.js: server-side">
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Next.js: server-side" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.112" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-WS-251.26094.131" />
       </set>
     </attachedChunks>
   </component>
@@ -142,6 +156,10 @@
       <workItem from="1749297042936" duration="5381000" />
       <workItem from="1749401337585" duration="9086000" />
       <workItem from="1749415598873" duration="4071000" />
+      <workItem from="1749496100559" duration="53000" />
+      <workItem from="1749496219864" duration="1000" />
+      <workItem from="1749548769732" duration="9003000" />
+      <workItem from="1749662688313" duration="1648000" />
     </task>
     <task id="LOCAL-00001" summary="Initialized and created basic hand tracking input">
       <option name="closed" value="true" />
