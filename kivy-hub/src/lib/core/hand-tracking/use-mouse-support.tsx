@@ -1,18 +1,7 @@
 import { useEffect } from 'react';
-import { HandEvent } from '@/lib/core/hand-tracking/hand-tracking-context';
+import { dispatchEvent } from '@/lib/core/hand-tracking/event-propagation';
 
-const handEvents = {
-  [0]: 'primary-touch',
-  [1]: 'secondary-touch',
-  [2]: 'tertiary-touch'
-};
-
-function dispatchEventAtPoint(
-  x: number,
-  y: number,
-  eventType: number,
-  eventDirective?: 'down' | 'up'
-) {
+function dispatchEventAtPoint(x: number, y: number, eventType: string) {
   const elementsAtPoint = document
     .elementsFromPoint(x, y)
     .filter((el) => el.getAttribute('data-can-interact') === '');
@@ -20,20 +9,7 @@ function dispatchEventAtPoint(
   const currentElementsSet = new Set(elementsAtPoint);
 
   currentElementsSet.forEach((element) => {
-    element.dispatchEvent(
-      new CustomEvent(
-        `${handEvents[eventType as keyof typeof handEvents]}-${eventDirective}`,
-        {
-          bubbles: true,
-          cancelable: true,
-          detail: {
-            clientX: x,
-            clientY: y,
-            type: 'mouse'
-          }
-        }
-      )
-    );
+    dispatchEvent(element, x, y, eventType, -1);
   });
 }
 
@@ -44,48 +20,34 @@ export function useMouseSupport() {
         dispatchEventAtPoint(
           event.clientX,
           event.clientY,
-          HandEvent.TERTIARY_TOUCH,
-          'down'
+          'primary-touch-down'
         );
       } else if (event.button === 2) {
         dispatchEventAtPoint(
           event.clientX,
           event.clientY,
-          HandEvent.SECONDARY_TOUCH,
-          'down'
+          'secondary-touch-down'
         );
       } else {
         dispatchEventAtPoint(
           event.clientX,
           event.clientY,
-          HandEvent.PRIMARY_TOUCH,
-          'down'
+          'tertiary-touch-down'
         );
       }
     }
 
     function onMouseUp(event: MouseEvent) {
       if (event.metaKey || event.button === 1) {
-        dispatchEventAtPoint(
-          event.clientX,
-          event.clientY,
-          HandEvent.TERTIARY_TOUCH,
-          'up'
-        );
+        dispatchEventAtPoint(event.clientX, event.clientY, 'primary-touch-up');
       } else if (event.button === 2) {
         dispatchEventAtPoint(
           event.clientX,
           event.clientY,
-          HandEvent.SECONDARY_TOUCH,
-          'up'
+          'secondary-touch-up'
         );
       } else {
-        dispatchEventAtPoint(
-          event.clientX,
-          event.clientY,
-          HandEvent.PRIMARY_TOUCH,
-          'up'
-        );
+        dispatchEventAtPoint(event.clientX, event.clientY, 'tertiary-touch-up');
       }
     }
 

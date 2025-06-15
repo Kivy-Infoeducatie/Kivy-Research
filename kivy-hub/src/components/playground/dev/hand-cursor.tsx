@@ -1,10 +1,9 @@
-import {
-  HandEvent,
-  useHandTracking
-} from '@/lib/core/hand-tracking/hand-tracking-context';
+import { useHandTracking } from '@/lib/core/hand-tracking/hand-tracking-context';
 import { cn } from '@/lib/utils';
+import { HandEvent } from '@/lib/core/hand-tracking/hand-tracking-types';
 
 const colors = {
+  [HandEvent.NO_TOUCH]: '',
   [HandEvent.PRIMARY_TOUCH]: 'border-blue-500 bg-blue-500/20',
   [HandEvent.SECONDARY_TOUCH]: 'border-green-500 bg-green-500/20',
   [HandEvent.TERTIARY_TOUCH]: 'border-yellow-500 bg-yellow-500/20'

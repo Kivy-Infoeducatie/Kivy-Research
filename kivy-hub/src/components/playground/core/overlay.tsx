@@ -6,11 +6,7 @@ interface OverlayProps extends HTMLAttributes<HTMLDivElement> {
   onClose?: () => void;
 }
 
-export default function Overlay({
-  open = false,
-  onClose,
-  ...props
-}: OverlayProps) {
+export function Overlay({ open = false, onClose, ...props }: OverlayProps) {
   return (
     <div
       {...props}

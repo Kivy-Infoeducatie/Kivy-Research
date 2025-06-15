@@ -1,4 +1,4 @@
-import Overlay from '../core/overlay.tsx';
+import { Overlay } from '../core/overlay';
 
 export function CalibrationOverlay() {
   return (

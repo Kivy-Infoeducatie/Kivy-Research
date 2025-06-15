@@ -1,11 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { useHandTracking } from '@/lib/core/hand-tracking/hand-tracking-context';
 import { drawLandmarks } from '@/lib/core/hand-tracking/draw-landmarks';
-import Selectable from '@/components/playground/core/selectable';
+import { Movable } from '@/components/playground/core/movable';
 
 export function HandTrackingVideo() {
-  const { modelStatus, rawLandmarks, toggleTracking, videoRef, handEvents } =
-    useHandTracking();
+  const { rawLandmarks, videoRef, handEvents } = useHandTracking();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>(0);
 
@@ -47,8 +46,8 @@ export function HandTrackingVideo() {
   }, [rawLandmarks, handEvents]);
 
   return (
-    <Selectable onSecondaryPress={() => {}} className='max-w-min'>
+    <Movable className='max-w-min'>
       <canvas ref={canvasRef} width={640} height={480} />
-    </Selectable>
+    </Movable>
   );
 }

@@ -1,11 +1,32 @@
-import { HTMLAttributes, ReactNode, useEffect, useRef, useState } from 'react';
+import {
+  HTMLAttributes,
+  ReactNode,
+  RefObject,
+  useEffect,
+  useRef,
+  useState
+} from 'react';
 import { cn } from '@/lib/utils';
+import { HandEvent } from '@/lib/core/hand-tracking/hand-tracking-types';
 
-type HoldableProps = HTMLAttributes<HTMLDivElement> & {
+type TouchEvent = Event & {
+  detail: {
+    clientX: number;
+    clientY: number;
+  };
+};
+
+type TouchFunction = (e: TouchEvent) => void;
+
+export type SelectableProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
-  onPrimaryPress?: () => void;
-  onSecondaryPress?: () => void;
-  onTertiaryPress?: () => void;
+  ref?: RefObject<HTMLDivElement | null>;
+  onPrimaryPress?: TouchFunction;
+  onSecondaryPress?: TouchFunction;
+  onTertiaryPress?: TouchFunction;
+  onPrimaryRelease?: TouchFunction;
+  onSecondaryRelease?: TouchFunction;
+  onTertiaryRelease?: TouchFunction;
   delay?: number;
   forceSelect?: boolean;
   stopPropagation?: boolean;
@@ -18,123 +39,114 @@ const colors = {
   2: 'custom-yellow-shadow'
 };
 
-export default function Selectable({
+export function Selectable({
   children,
   onPrimaryPress,
   onSecondaryPress,
   onTertiaryPress,
+  onPrimaryRelease,
+  onSecondaryRelease,
+  onTertiaryRelease,
   delay = 500,
   stopPropagation = false,
   showFeedback = true,
+  ref,
   ...props
-}: HoldableProps) {
-  const [selected, setSelected] = useState<number>(-1);
+}: SelectableProps) {
+  const [selected, setSelected] = useState<HandEvent>(HandEvent.NO_TOUCH);
   const [selecting, setSelecting] = useState(false);
   const selectingRef = useRef(false);
   const timeOutRef = useRef<NodeJS.Timeout>(null);
-  const divRef = useRef<HTMLDivElement>(null);
+  const divRef = ref ?? useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = divRef.current;
     if (!el) return;
 
-    const onPrimaryDown = (e: Event) => {
-      if (stopPropagation) e.stopPropagation();
-      setSelecting(true);
-      selectingRef.current = true;
-      timeOutRef.current = setTimeout(() => {
-        if (selectingRef.current) {
-          setSelected(0);
-          setSelecting(false);
-          onPrimaryPress?.();
+    const handleTouchDown =
+      (handEvent: HandEvent, fn?: TouchFunction) => (e: TouchEvent) => {
+        if (stopPropagation) e.stopPropagation();
+        setSelecting(true);
+        selectingRef.current = true;
+
+        timeOutRef.current = setTimeout(() => {
+          if (selectingRef.current) {
+            setSelected(handEvent);
+            setSelecting(false);
+            fn?.(e);
+          }
+        }, delay);
+      };
+
+    const handleTouchUp =
+      (handEvent: HandEvent, fn?: TouchFunction) => (e: TouchEvent) => {
+        console.log('Touch up:', handEvent);
+        if (stopPropagation) e.stopPropagation();
+        if (timeOutRef.current) clearTimeout(timeOutRef.current);
+        selectingRef.current = false;
+
+        if (selected === handEvent) {
+          fn?.(e);
         }
-      }, delay);
-    };
 
-    const onPrimaryUp = (e: Event) => {
-      if (stopPropagation) e.stopPropagation();
-      if (timeOutRef.current) clearTimeout(timeOutRef.current);
-      selectingRef.current = false;
-      setSelecting(false);
-      setSelected(-1);
-    };
+        setSelecting(false);
+        setSelected(-1);
+      };
 
-    const onSecondaryDown = (e: Event) => {
-      if (stopPropagation) e.stopPropagation();
-      setSelecting(true);
-      selectingRef.current = true;
-      timeOutRef.current = setTimeout(() => {
-        if (selectingRef.current) {
-          setSelected(1);
-          setSelecting(false);
-          onSecondaryPress?.();
+    const handlers = [
+      {
+        downEvent: 'primary-touch-down',
+        upEvent: 'primary-touch-up',
+        handEvent: HandEvent.PRIMARY_TOUCH,
+        pressFn: onPrimaryPress,
+        releaseFn: onPrimaryRelease
+      },
+      {
+        downEvent: 'secondary-touch-down',
+        upEvent: 'secondary-touch-up',
+        handEvent: HandEvent.SECONDARY_TOUCH,
+        pressFn: onSecondaryPress,
+        releaseFn: onSecondaryRelease
+      },
+      {
+        downEvent: 'tertiary-touch-down',
+        upEvent: 'tertiary-touch-up',
+        handEvent: HandEvent.TERTIARY_TOUCH,
+        pressFn: onTertiaryPress,
+        releaseFn: onTertiaryRelease
+      }
+    ];
+
+    const cleanupListeners: (() => void)[] = [];
+
+    handlers.forEach(
+      ({ downEvent, upEvent, handEvent, pressFn, releaseFn }) => {
+        if (pressFn) {
+          const downListener = handleTouchDown(handEvent, pressFn);
+          const upListener = handleTouchUp(handEvent, releaseFn);
+
+          el.addEventListener(downEvent, downListener as unknown as () => void);
+          el.addEventListener(upEvent, upListener as unknown as () => void);
+
+          cleanupListeners.push(() => {
+            el.removeEventListener(
+              downEvent,
+              downListener as unknown as () => void
+            );
+            el.removeEventListener(
+              upEvent,
+              upListener as unknown as () => void
+            );
+          });
         }
-      }, delay);
-    };
-
-    const onSecondaryUp = (e: Event) => {
-      if (stopPropagation) e.stopPropagation();
-      if (timeOutRef.current) clearTimeout(timeOutRef.current);
-      selectingRef.current = false;
-      setSelecting(false);
-      setSelected(-1);
-    };
-
-    const onTertiaryDown = (e: Event) => {
-      if (stopPropagation) e.stopPropagation();
-      setSelecting(true);
-      selectingRef.current = true;
-      timeOutRef.current = setTimeout(() => {
-        if (selectingRef.current) {
-          setSelected(2);
-          setSelecting(false);
-          onTertiaryPress?.();
-        }
-      }, delay);
-    };
-
-    const onTertiaryUp = (e: Event) => {
-      if (stopPropagation) e.stopPropagation();
-      if (timeOutRef.current) clearTimeout(timeOutRef.current);
-      selectingRef.current = false;
-      setSelecting(false);
-      setSelected(-1);
-    };
-
-    if (onPrimaryPress) {
-      el.addEventListener('primary-touch-down', onPrimaryDown);
-      el.addEventListener('primary-touch-up', onPrimaryUp);
-    }
-
-    if (onSecondaryPress) {
-      el.addEventListener('secondary-touch-down', onSecondaryDown);
-      el.addEventListener('secondary-touch-up', onSecondaryUp);
-    }
-
-    if (onTertiaryPress) {
-      el.addEventListener('tertiary-touch-down', onTertiaryDown);
-      el.addEventListener('tertiary-touch-up', onTertiaryUp);
-    }
+      }
+    );
 
     return () => {
-      if (onPrimaryPress) {
-        el.removeEventListener('primary-touch-down', onPrimaryDown);
-        el.removeEventListener('primary-touch-up', onPrimaryUp);
-      }
-
-      if (onSecondaryPress) {
-        el.removeEventListener('secondary-touch-down', onSecondaryDown);
-        el.removeEventListener('secondary-touch-up', onSecondaryUp);
-      }
-
-      if (onTertiaryPress) {
-        el.removeEventListener('tertiary-touch-down', onTertiaryDown);
-        el.removeEventListener('tertiary-touch-up', onTertiaryUp);
-      }
-
+      cleanupListeners.forEach((cleanup) => cleanup());
       if (timeOutRef.current) clearTimeout(timeOutRef.current);
     };
-  }, [delay, stopPropagation]);
+  }, [delay, stopPropagation, selected]);
 
   return (
     <div
@@ -143,18 +155,15 @@ export default function Selectable({
       ref={divRef}
       className={cn(
         'flex select-none',
-        props.className,
         showFeedback
           ? selected !== -1
             ? colors[selected as keyof typeof colors]
             : selecting
               ? 'custom-white-shadow'
               : ''
-          : ''
+          : '',
+        props.className
       )}
-      style={{
-        ...props.style
-      }}
     >
       {children}
     </div>

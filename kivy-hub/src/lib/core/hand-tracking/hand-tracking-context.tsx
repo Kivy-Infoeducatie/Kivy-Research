@@ -3,11 +3,10 @@ import {
   ReactNode,
   RefObject,
   useContext,
-  useEffect,
   useRef,
   useState
 } from 'react';
-import { FilesetResolver, HandLandmarker } from '@mediapipe/tasks-vision';
+import { HandLandmarker } from '@mediapipe/tasks-vision';
 import { NormalizedLandmark } from '@mediapipe/hands';
 import {
   getDistance,
@@ -19,6 +18,15 @@ import {
   parseLandmarksArray
 } from '@/lib/core/hand-tracking/format-landmarks';
 import { eventPropagation } from '@/lib/core/hand-tracking/event-propagation';
+import { EventRegistry } from '@/lib/core/hand-tracking/event-registry';
+import { Point } from '@/lib/types';
+import {
+  HandEvent,
+  HandTrackingEvents,
+  ModelStatus
+} from '@/lib/core/hand-tracking/hand-tracking-types';
+import { useWebcam } from '@/lib/core/hand-tracking/use-webcam';
+import { useHandLandMarker } from '@/lib/core/hand-tracking/use-hand-land-marker';
 
 interface HandTrackingContextInterface {
   handTracker: HandLandmarker | null;
@@ -27,10 +35,11 @@ interface HandTrackingContextInterface {
   rawLandmarks: NormalizedLandmark[][];
   landmarks: HandLandmarks[];
   handEvents: HandEvent[];
-
-  initializeHandLandMarker(): Promise<void>;
+  eventRegistryRef: RefObject<EventRegistry<HandTrackingEvents>>;
 
   toggleTracking(): void;
+
+  landmarksRef: RefObject<HandLandmarks[]>;
 }
 
 const handTrackingContext = createContext<HandTrackingContextInterface | null>(
@@ -49,66 +58,27 @@ export function useHandTracking() {
   return ctx;
 }
 
-enum ModelStatus {
-  LOADING = 'loading',
-  READY = 'ready',
-  ERROR = 'error'
-}
-
-export enum HandEvent {
-  PRIMARY_TOUCH,
-  SECONDARY_TOUCH,
-  TERTIARY_TOUCH
-}
-
 export function HandTrackingProvider({ children }: { children: ReactNode }) {
-  const [modelStatus, setModelStatus] = useState<ModelStatus>(
-    ModelStatus.LOADING
-  );
-  const [handTracker, setHandTracker] = useState<HandLandmarker | null>(null);
-
   const [isTracking, setIsTracking] = useState<boolean>(false);
   const [webcamRunning, setWebcamRunning] = useState<boolean>(false);
 
   const [rawLandmarks, setRawLandmarks] = useState<NormalizedLandmark[][]>([]);
   const [landmarks, setLandmarks] = useState<HandLandmarks[]>([]);
+  const landmarksRef = useRef<HandLandmarks[]>([]);
 
   const [handEvents, setHandEvents] = useState<HandEvent[]>([]);
 
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  async function initializeHandLandMarker() {
-    setModelStatus(ModelStatus.LOADING);
-
-    try {
-      const vision = await FilesetResolver.forVisionTasks('/wasm');
-
-      const landMarker = await HandLandmarker.createFromOptions(vision, {
-        baseOptions: {
-          modelAssetPath: '/models/hand_landmarker.task',
-          delegate: 'GPU'
-        },
-        numHands: 2,
-        runningMode: 'VIDEO'
-      });
-
-      setHandTracker(landMarker);
-      setModelStatus(ModelStatus.READY);
-    } catch (error) {
-      console.error('Error initializing HandLandMarker:', error);
-      setModelStatus(ModelStatus.ERROR);
-    }
-  }
-
-  useEffect(() => {
-    void initializeHandLandMarker();
-  }, []);
+  const eventRegistryRef = useRef(new EventRegistry<HandTrackingEvents>());
 
   let lastVideoTime = -1;
   let animationFrameID = 0;
 
   const hoveredElements = useRef<Set<Element>>(new Set<Element>());
   const hoveredElementTypes = useRef<Map<Element, number>>(new Map());
+
+  const { handTracker, modelStatus } = useHandLandMarker();
 
   async function predictHandMarks() {
     if (!handTracker || !videoRef.current || !isTracking) {
@@ -129,8 +99,34 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
         const parsedLandmarks = parseLandmarksArray(results.landmarks);
 
         setLandmarks(parsedLandmarks);
+        landmarksRef.current = parsedLandmarks;
 
         const events: HandEvent[] = [];
+
+        const eventRegistry = eventRegistryRef.current;
+
+        function emitEvent(handEvent: HandEvent, point: Point, index: number) {
+          events.push(handEvent);
+
+          eventPropagation(
+            hoveredElements,
+            hoveredElementTypes,
+            point.x * window.innerWidth,
+            point.y * window.innerHeight,
+            handEvent,
+            index
+          );
+
+          eventRegistry.emit(
+            'touch-move',
+            {
+              x: point.x * window.innerWidth,
+              y: point.y * window.innerHeight
+            },
+            index,
+            handEvent
+          );
+        }
 
         for (let i = 0; i < parsedLandmarks.length; i++) {
           const landmark = parsedLandmarks[i];
@@ -139,41 +135,14 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
             getDistance(landmark.index.tip, landmark.thumb.tip) <
             SECONDARY_TOUCH_DISTANCE
           ) {
-            events.push(HandEvent.SECONDARY_TOUCH);
-
-            eventPropagation(
-              hoveredElements,
-              hoveredElementTypes,
-              landmark.index.tip.x * window.innerWidth,
-              landmark.index.tip.y * window.innerHeight,
-              HandEvent.SECONDARY_TOUCH,
-              i
-            );
+            emitEvent(HandEvent.SECONDARY_TOUCH, landmark.index.tip, i);
           } else if (
             getDistance(landmark.index.tip, landmark.middle.tip) <
             TERTIARY_TOUCH_DISTANCE
           ) {
-            events.push(HandEvent.TERTIARY_TOUCH);
-
-            eventPropagation(
-              hoveredElements,
-              hoveredElementTypes,
-              landmark.index.tip.x * window.innerWidth,
-              landmark.index.tip.y * window.innerHeight,
-              HandEvent.TERTIARY_TOUCH,
-              i
-            );
+            emitEvent(HandEvent.TERTIARY_TOUCH, landmark.index.tip, i);
           } else {
-            events.push(HandEvent.PRIMARY_TOUCH);
-
-            eventPropagation(
-              hoveredElements,
-              hoveredElementTypes,
-              landmark.index.tip.x * window.innerWidth,
-              landmark.index.tip.y * window.innerHeight,
-              HandEvent.PRIMARY_TOUCH,
-              i
-            );
+            emitEvent(HandEvent.PRIMARY_TOUCH, landmark.index.tip, i);
           }
         }
 
@@ -186,44 +155,13 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  useEffect(() => {
-    if (!videoRef.current) return;
-
-    const constraints = {
-      video: { width: 640, height: 480 }
-    };
-
-    async function enableWebcam() {
-      try {
-        // @ts-ignore
-        videoRef.current!.srcObject =
-          await navigator.mediaDevices.getUserMedia(constraints);
-        // @ts-ignore
-        videoRef.current!.addEventListener('loadeddata', predictHandMarks);
-      } catch (error) {
-        console.error('Error accessing webcam:', error);
-      }
-    }
-
-    if (isTracking && !webcamRunning) {
-      void enableWebcam();
-      setWebcamRunning(true);
-    } else if (!isTracking && webcamRunning) {
-      // @ts-ignore
-      const tracks = videoRef.current.srcObject?.getTracks();
-      tracks?.forEach((track: any) => track.stop());
-      // @ts-ignore
-
-      videoRef.current.srcObject = null;
-      setWebcamRunning(false);
-    }
-
-    return () => {
-      // @ts-ignore
-      const tracks = videoRef.current?.srcObject?.getTracks();
-      tracks?.forEach((track: any) => track.stop());
-    };
-  }, [isTracking, webcamRunning]);
+  useWebcam(
+    videoRef,
+    isTracking,
+    webcamRunning,
+    setWebcamRunning,
+    predictHandMarks
+  );
 
   function toggleTracking() {
     if (isTracking) {
@@ -237,12 +175,13 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
       value={{
         handTracker,
         modelStatus,
-        initializeHandLandMarker,
         toggleTracking,
+        landmarksRef,
         videoRef,
         rawLandmarks,
         landmarks,
-        handEvents
+        handEvents,
+        eventRegistryRef
       }}
     >
       {children}

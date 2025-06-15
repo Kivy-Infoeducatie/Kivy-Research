@@ -5,18 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Refacotring and added multi provider for better code organization.">
-      <change afterPath="$PROJECT_DIR$/src/lib/core/plugins/plugin.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/core/screens/screen-context.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/timer-widget/timer-widget-context.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/timer-widget/timer-widget-stack.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/timer-widget/timer-widget-types.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/timer-widget/timer-widget.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/event-registry.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/hand-tracking-types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/use-hand-land-marker.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/use-webcam.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/playground/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/playground/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/core/overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/overlay.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/dev/hand-cursor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/hand-cursor.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/dev/hand-tracking-video.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/hand-tracking-video.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/home-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/main-selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/main-selectable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/menu-items.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/menu-items.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/core/widgets/widget-context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/widgets/widget-context.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/overlays/calibration-overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/overlays/calibration-overlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/overlays/measure-overlay.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/overlays/range-overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/movable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/overlays/select-overlay.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/overlays/slicing-overlay.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/home-widget.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/main-selectable.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/menu-config.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/menu-items.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/timer/timer-menu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/core/hand-tracking/event-propagation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/event-propagation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/core/hand-tracking/hand-tracking-context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/hand-tracking-context.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/core/hand-tracking/use-mouse-support.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/use-mouse-support.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/core/plugins/plugin.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/core/screens/screen-context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/screens/screen-context.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/core/tools/idle.tool.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/core/tools/move.tool.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/core/tools/tool.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/widget-stack-manager.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/z-index-manager.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
