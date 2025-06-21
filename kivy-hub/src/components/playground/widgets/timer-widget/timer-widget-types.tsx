@@ -1,4 +1,7 @@
-export type TimerStack = Timer[];
+export interface TimerStack {
+  id: string;
+  timers: Timer[];
+}
 
 export interface Timer {
   id: string;

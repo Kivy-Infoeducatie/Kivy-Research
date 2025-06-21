@@ -36,11 +36,14 @@ export function eventPropagation(
   x: number,
   y: number,
   eventType: HandEvent,
-  handIndex: number
+  handIndex: number,
+  newlyHovered?: Element[]
 ) {
-  const elementsAtPoint = document
-    .elementsFromPoint(x, y)
-    .filter((el) => el.getAttribute('data-can-interact') === '');
+  const elementsAtPoint =
+    newlyHovered ??
+    document
+      .elementsFromPoint(x, y)
+      .filter((el) => el.getAttribute('data-can-interact') === '');
 
   const currentElementsSet = new Set(elementsAtPoint);
 

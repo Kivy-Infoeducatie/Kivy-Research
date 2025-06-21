@@ -29,8 +29,15 @@ export function TimerWidget({
   title,
   id
 }: Timer) {
+
+
   return (
-    <div className='relative flex h-[16rem] w-[23rem] flex-col justify-between rounded-[3rem] bg-white p-5 text-black'>
+    <Selectable
+      onTertiaryPress={() => {
+
+      }}
+      className='relative flex h-[16rem] w-[23rem] flex-col justify-between rounded-[3rem] bg-white p-5 text-black'
+    >
       <div className='z-10 flex flex-col'>
         <div className='flex items-center gap-2'>
           <TimerIcon className='text-black/80' />
@@ -68,6 +75,6 @@ export function TimerWidget({
           width: `${(currentTime / totalTime) * 100}%`
         }}
       />
-    </div>
+    </Selectable>
   );
 }

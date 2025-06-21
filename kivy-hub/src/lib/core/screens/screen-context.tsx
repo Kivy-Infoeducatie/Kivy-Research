@@ -1,10 +1,12 @@
 import { createContext, ReactNode, useContext, useRef } from 'react';
 import { useHandTracking } from '@/lib/core/hand-tracking/hand-tracking-context';
 import { HandTrackingVideo } from '@/components/playground/dev/hand-tracking-video';
-import { HandCursor } from '@/components/playground/dev/hand-cursor';
-import { useWidgets } from '@/lib/core/widgets/widget-context';
-import { Selectable } from '@/components/playground/core/selectable';
+import { HandCursors } from '@/components/playground/dev/hand-cursors';
 import { TimerWidgetStack } from '@/components/playground/widgets/timer-widget/timer-widget-stack';
+import { HomeWidget } from '@/components/playground/widgets/home-widget/home-widget';
+import RecipeWidget from '@/components/playground/widgets/recipe-widget';
+import { StartCameraWidget } from '@/components/playground/widgets/start-camera-widget';
+import { useTimerWidget } from '@/components/playground/widgets/timer-widget/timer-widget-context';
 
 interface ScreenContextInterface {}
 
@@ -27,54 +29,18 @@ interface Screen {
 }
 
 function Playground() {
-  const { toggleTracking } = useHandTracking();
-
-  const { addTimer, timers } = useWidgets();
+  const { stacks } = useTimerWidget();
 
   return (
     <div>
-      {/*<HandTrackingVideo />*/}
-      <button className='pl-[700px]' onClick={toggleTracking}>
-        Toggle
-      </button>
-      <HandCursor />
-      {timers.map((timer) => (
-        <Selectable onPrimaryPress={() => {}} key={timer.id}>
-          {timer.time}
-        </Selectable>
+      <HandTrackingVideo />
+      <HandCursors />
+      <HomeWidget />
+      <StartCameraWidget />
+      <RecipeWidget />
+      {stacks.map((stack) => (
+        <TimerWidgetStack key={stack.id} timers={stack.timers} />
       ))}
-      <button
-        onClick={() => {
-          addTimer(40);
-        }}
-      >
-        Add timer
-      </button>
-      <TimerWidgetStack
-        timers={[
-          {
-            id: 'a',
-            title: 'Timer 1',
-            currentTime: 20,
-            totalTime: 40,
-            isRunning: true
-          },
-          {
-            id: 'b',
-            title: 'Timer 2',
-            currentTime: 20,
-            totalTime: 40,
-            isRunning: true
-          },
-          {
-            id: 'c',
-            title: 'Timer 3',
-            currentTime: 20,
-            totalTime: 40,
-            isRunning: true
-          }
-        ]}
-      />
     </div>
   );
 }

@@ -1,12 +1,29 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useHandTracking } from '@/lib/core/hand-tracking/hand-tracking-context';
 import { drawLandmarks } from '@/lib/core/hand-tracking/draw-landmarks';
 import { Movable } from '@/components/playground/core/movable';
 
 export function HandTrackingVideo() {
-  const { rawLandmarks, videoRef, handEvents } = useHandTracking();
+  const { rawLandmarksRef, videoRef, eventRegistryRef } = useHandTracking();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>(0);
+
+  const [_updater, setUpdater] = useState<number>(0);
+  const updaterRef = useRef<number>(0);
+
+  useEffect(() => {
+    function onTouchMove() {
+      updaterRef.current++;
+
+      setUpdater(updaterRef.current);
+    }
+
+    eventRegistryRef.current.on('touch-move', onTouchMove);
+
+    return () => {
+      eventRegistryRef.current.off('touch-move', onTouchMove);
+    };
+  }, []);
 
   function draw() {
     if (!canvasRef.current || !videoRef.current) return;
@@ -24,7 +41,7 @@ export function HandTrackingVideo() {
 
     ctx.drawImage(videoRef.current, 0, 0, w, h);
 
-    for (const landmark of rawLandmarks) {
+    for (const landmark of rawLandmarksRef.current) {
       drawLandmarks(ctx, landmark, w, h);
     }
 
@@ -43,11 +60,22 @@ export function HandTrackingVideo() {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [rawLandmarks, handEvents]);
+  }, []);
 
   return (
-    <Movable className='max-w-min'>
-      <canvas ref={canvasRef} width={640} height={480} />
+    <Movable
+      initialPos={{
+        x: window.innerWidth - 40 - 640,
+        y: 40
+      }}
+      className='max-w-min rounded-[3rem]'
+    >
+      <canvas
+        className='rounded-[3rem]'
+        ref={canvasRef}
+        width={640}
+        height={480}
+      />
     </Movable>
   );
 }

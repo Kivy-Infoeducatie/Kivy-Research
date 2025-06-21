@@ -7,7 +7,6 @@ import {
   useState
 } from 'react';
 import { HandLandmarker } from '@mediapipe/tasks-vision';
-import { NormalizedLandmark } from '@mediapipe/hands';
 import {
   getDistance,
   SECONDARY_TOUCH_DISTANCE,
@@ -17,8 +16,6 @@ import {
   HandLandmarks,
   parseLandmarksArray
 } from '@/lib/core/hand-tracking/format-landmarks';
-import { eventPropagation } from '@/lib/core/hand-tracking/event-propagation';
-import { EventRegistry } from '@/lib/core/hand-tracking/event-registry';
 import { Point } from '@/lib/types';
 import {
   HandEvent,
@@ -27,19 +24,28 @@ import {
 } from '@/lib/core/hand-tracking/hand-tracking-types';
 import { useWebcam } from '@/lib/core/hand-tracking/use-webcam';
 import { useHandLandMarker } from '@/lib/core/hand-tracking/use-hand-land-marker';
+import { useMouseSupport } from '@/lib/core/hand-tracking/use-mouse-support';
+import { EventRegistry } from '@/lib/core/event-handling/event-registry';
+import { eventPropagation } from '@/lib/core/event-handling/event-propagation';
+import { NormalizedLandmark } from '@mediapipe/hands';
 
 interface HandTrackingContextInterface {
   handTracker: HandLandmarker | null;
   modelStatus: ModelStatus;
   videoRef: RefObject<any>;
-  rawLandmarks: NormalizedLandmark[][];
-  landmarks: HandLandmarks[];
-  handEvents: HandEvent[];
   eventRegistryRef: RefObject<EventRegistry<HandTrackingEvents>>;
+  isTracking: boolean;
 
   toggleTracking(): void;
 
   landmarksRef: RefObject<HandLandmarks[]>;
+  rawLandmarksRef: RefObject<NormalizedLandmark[][]>;
+  handEventsRef: RefObject<HandEvent[]>;
+
+  mousePositionRef: RefObject<{
+    x: number;
+    y: number;
+  }>;
 }
 
 const handTrackingContext = createContext<HandTrackingContextInterface | null>(
@@ -62,11 +68,9 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
   const [isTracking, setIsTracking] = useState<boolean>(false);
   const [webcamRunning, setWebcamRunning] = useState<boolean>(false);
 
-  const [rawLandmarks, setRawLandmarks] = useState<NormalizedLandmark[][]>([]);
-  const [landmarks, setLandmarks] = useState<HandLandmarks[]>([]);
   const landmarksRef = useRef<HandLandmarks[]>([]);
-
-  const [handEvents, setHandEvents] = useState<HandEvent[]>([]);
+  const handEventsRef = useRef<HandEvent[]>([]);
+  const rawLandmarksRef = useRef<NormalizedLandmark[][]>([]);
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -77,6 +81,12 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
 
   const hoveredElements = useRef<Set<Element>>(new Set<Element>());
   const hoveredElementTypes = useRef<Map<Element, number>>(new Map());
+
+  const mousePositionRef = useMouseSupport(
+    eventRegistryRef,
+    hoveredElements,
+    hoveredElementTypes
+  );
 
   const { handTracker, modelStatus } = useHandLandMarker();
 
@@ -94,11 +104,10 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
       const results = handTracker.detectForVideo(video, startTimeMs);
 
       if (results.landmarks && results.landmarks.length > 0) {
-        setRawLandmarks(results.landmarks);
+        rawLandmarksRef.current = results.landmarks;
 
         const parsedLandmarks = parseLandmarksArray(results.landmarks);
 
-        setLandmarks(parsedLandmarks);
         landmarksRef.current = parsedLandmarks;
 
         const events: HandEvent[] = [];
@@ -146,7 +155,7 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
           }
         }
 
-        setHandEvents(events);
+        handEventsRef.current = events;
       }
     }
 
@@ -177,11 +186,12 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
         modelStatus,
         toggleTracking,
         landmarksRef,
+        rawLandmarksRef,
+        handEventsRef,
         videoRef,
-        rawLandmarks,
-        landmarks,
-        handEvents,
-        eventRegistryRef
+        eventRegistryRef,
+        mousePositionRef,
+        isTracking
       }}
     >
       {children}

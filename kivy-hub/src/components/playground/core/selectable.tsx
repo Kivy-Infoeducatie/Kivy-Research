@@ -19,6 +19,7 @@ type TouchEvent = Event & {
 type TouchFunction = (e: TouchEvent) => void;
 
 export type SelectableProps = HTMLAttributes<HTMLDivElement> & {
+  enabled?: boolean;
   children: ReactNode;
   ref?: RefObject<HTMLDivElement | null>;
   onPrimaryPress?: TouchFunction;
@@ -40,6 +41,7 @@ const colors = {
 };
 
 export function Selectable({
+  enabled = true,
   children,
   onPrimaryPress,
   onSecondaryPress,
@@ -60,6 +62,12 @@ export function Selectable({
   const divRef = ref ?? useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!enabled) {
+      setSelected(-1);
+      setSelecting(false);
+      return;
+    }
+
     const el = divRef.current;
     if (!el) return;
 
@@ -80,7 +88,6 @@ export function Selectable({
 
     const handleTouchUp =
       (handEvent: HandEvent, fn?: TouchFunction) => (e: TouchEvent) => {
-        console.log('Touch up:', handEvent);
         if (stopPropagation) e.stopPropagation();
         if (timeOutRef.current) clearTimeout(timeOutRef.current);
         selectingRef.current = false;
@@ -146,7 +153,7 @@ export function Selectable({
       cleanupListeners.forEach((cleanup) => cleanup());
       if (timeOutRef.current) clearTimeout(timeOutRef.current);
     };
-  }, [delay, stopPropagation, selected]);
+  }, [delay, stopPropagation, selected, enabled, onPrimaryPress]);
 
   return (
     <div

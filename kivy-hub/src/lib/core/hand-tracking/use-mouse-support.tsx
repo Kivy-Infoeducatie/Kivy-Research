@@ -1,54 +1,118 @@
-import { useEffect } from 'react';
-import { dispatchEvent } from '@/lib/core/hand-tracking/event-propagation';
+import { RefObject, useEffect, useRef } from 'react';
+import {
+  HandEvent,
+  HandTrackingEvents
+} from '@/lib/core/hand-tracking/hand-tracking-types';
+import { EventRegistry } from '@/lib/core/event-handling/event-registry';
+import { eventPropagation } from '@/lib/core/event-handling/event-propagation';
 
-function dispatchEventAtPoint(x: number, y: number, eventType: string) {
-  const elementsAtPoint = document
-    .elementsFromPoint(x, y)
-    .filter((el) => el.getAttribute('data-can-interact') === '');
+export function useMouseSupport(
+  eventRegistryRef: RefObject<EventRegistry<HandTrackingEvents>>,
+  hoveredElements: RefObject<Set<Element>>,
+  hoveredElementEvents: RefObject<Map<Element, HandEvent>>
+) {
+  const mouseDownRef = useRef<boolean>(false);
 
-  const currentElementsSet = new Set(elementsAtPoint);
-
-  currentElementsSet.forEach((element) => {
-    dispatchEvent(element, x, y, eventType, -1);
+  const mouseCoordsRef = useRef<{ x: number; y: number }>({
+    x: 0,
+    y: 0
   });
-}
 
-export function useMouseSupport() {
+  const mouseButtonRef = useRef<number>(0);
+
   useEffect(() => {
-    function onMouseDown(event: MouseEvent) {
-      if (event.metaKey || event.button === 1) {
-        dispatchEventAtPoint(
+    function emit(
+      event: {
+        clientX: number;
+        clientY: number;
+        metaKey: boolean;
+      },
+      newlyHovered?: Element[]
+    ) {
+      mouseCoordsRef.current = {
+        x: event.clientX,
+        y: event.clientY
+      };
+
+      if (event.metaKey && mouseButtonRef.current === 0) {
+        eventPropagation(
+          hoveredElements,
+          hoveredElementEvents,
           event.clientX,
           event.clientY,
-          'primary-touch-down'
+          HandEvent.TERTIARY_TOUCH,
+          -1,
+          newlyHovered
         );
-      } else if (event.button === 2) {
-        dispatchEventAtPoint(
+
+        eventRegistryRef.current.emit(
+          'touch-move',
+          {
+            x: event.clientX,
+            y: event.clientY
+          },
+          0,
+          HandEvent.TERTIARY_TOUCH
+        );
+      } else if (mouseButtonRef.current === 2) {
+        eventPropagation(
+          hoveredElements,
+          hoveredElementEvents,
           event.clientX,
           event.clientY,
-          'secondary-touch-down'
+          HandEvent.SECONDARY_TOUCH,
+          -1,
+          newlyHovered
+        );
+
+        eventRegistryRef.current.emit(
+          'touch-move',
+          {
+            x: event.clientX,
+            y: event.clientY
+          },
+          0,
+          HandEvent.SECONDARY_TOUCH
         );
       } else {
-        dispatchEventAtPoint(
+        eventPropagation(
+          hoveredElements,
+          hoveredElementEvents,
           event.clientX,
           event.clientY,
-          'tertiary-touch-down'
+          HandEvent.PRIMARY_TOUCH,
+          -1,
+          newlyHovered
+        );
+
+        eventRegistryRef.current.emit(
+          'touch-move',
+          {
+            x: event.clientX,
+            y: event.clientY
+          },
+          0,
+          HandEvent.PRIMARY_TOUCH
         );
       }
     }
 
+    function onMouseMove(event: MouseEvent) {
+      if (!mouseDownRef.current) return;
+
+      emit(event);
+    }
+
+    function onMouseDown(event: MouseEvent) {
+      mouseDownRef.current = true;
+      mouseButtonRef.current = event.button;
+      emit(event);
+    }
+
     function onMouseUp(event: MouseEvent) {
-      if (event.metaKey || event.button === 1) {
-        dispatchEventAtPoint(event.clientX, event.clientY, 'primary-touch-up');
-      } else if (event.button === 2) {
-        dispatchEventAtPoint(
-          event.clientX,
-          event.clientY,
-          'secondary-touch-up'
-        );
-      } else {
-        dispatchEventAtPoint(event.clientX, event.clientY, 'tertiary-touch-up');
-      }
+      mouseDownRef.current = false;
+
+      emit(event, []);
     }
 
     function preventDefaultContextMenu(e: MouseEvent) {
@@ -59,12 +123,16 @@ export function useMouseSupport() {
 
     document.addEventListener('mousedown', onMouseDown);
     document.addEventListener('mouseup', onMouseUp);
+    document.addEventListener('mousemove', onMouseMove);
 
     return () => {
       document.removeEventListener('contextmenu', preventDefaultContextMenu);
 
       document.removeEventListener('mousedown', onMouseDown);
       document.removeEventListener('mouseup', onMouseUp);
+      document.removeEventListener('mousemove', onMouseMove);
     };
   }, []);
+
+  return mouseCoordsRef;
 }
