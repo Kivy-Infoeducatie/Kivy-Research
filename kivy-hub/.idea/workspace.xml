@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Fixed hub closing when hovered via hand">
+    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Fixed back button not working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/home-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/home-widget.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/core/event-handling/event-propagation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/event-handling/event-propagation.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750670498451</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fixed back button not working">
+      <option name="closed" value="true" />
+      <created>1750671229393</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1750671229393</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,6 +377,7 @@
     <MESSAGE value="Added cutting tools" />
     <MESSAGE value="Added dynamic import to solve window is undefined error" />
     <MESSAGE value="Fixed hub closing when hovered via hand" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed hub closing when hovered via hand" />
+    <MESSAGE value="Fixed back button not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed back button not working" />
   </component>
 </project>

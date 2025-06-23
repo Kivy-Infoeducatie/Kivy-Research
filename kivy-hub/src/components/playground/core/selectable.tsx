@@ -18,6 +18,16 @@ type TouchEvent = Event & {
 
 type TouchFunction = (e: TouchEvent) => void;
 
+function canInteract(
+  onPrimaryPress: TouchFunction | undefined,
+  onSecondaryPress: TouchFunction | undefined,
+  onTertiaryPress: TouchFunction | undefined,
+  enabled: boolean
+) {
+  if (!enabled) return '000';
+  return `${onPrimaryPress ? '1' : '0'}${onSecondaryPress ? '1' : '0'}${onTertiaryPress ? '1' : '0'}`;
+}
+
 export type SelectableProps = HTMLAttributes<HTMLDivElement> & {
   enabled?: boolean;
   children?: ReactNode;
@@ -157,7 +167,12 @@ export function Selectable({
 
   return (
     <div
-      data-can-interact={enabled}
+      data-can-interact={canInteract(
+        onPrimaryPress,
+        onSecondaryPress,
+        onTertiaryPress,
+        enabled
+      )}
       {...props}
       ref={divRef}
       className={cn(

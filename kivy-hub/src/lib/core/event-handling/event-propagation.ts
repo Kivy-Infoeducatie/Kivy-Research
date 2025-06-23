@@ -105,7 +105,9 @@ export function eventPropagation(
     sortByStacking(
       document
         .elementsFromPoint(x, y)
-        .filter((el) => el.getAttribute('data-can-interact') === 'true')
+        .filter(
+          (el) => el.getAttribute('data-can-interact')?.[eventType] === '1'
+        )
     )[0]
   ];
 
