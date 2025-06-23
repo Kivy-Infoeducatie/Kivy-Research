@@ -11,6 +11,8 @@ export function HomeWidget() {
   const handleMainPress = () => {
     if (!homeMenu.showBack) {
       setIsOpen(!isOpen);
+    } else {
+      homeMenu.backFn?.(setHomeMenu);
     }
   };
 

@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Fixed hub closing when hovered via hand">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/home-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/home-widget.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/core/event-handling/event-propagation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/event-handling/event-propagation.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750669053585</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fixed hub closing when hovered via hand">
+      <option name="closed" value="true" />
+      <created>1750670498451</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1750670498451</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
