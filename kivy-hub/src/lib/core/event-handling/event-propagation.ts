@@ -39,15 +39,17 @@ export function eventPropagation(
   handIndex: number,
   newlyHovered?: Element[]
 ) {
-  const elementsAtPoint =
-    newlyHovered ??
+  const elementsAtPoint = newlyHovered ?? [
     document
       .elementsFromPoint(x, y)
-      .filter((el) => el.getAttribute('data-can-interact') === '');
+      .filter((el) => el.getAttribute('data-can-interact') === 'true')[0]
+  ];
 
   const currentElementsSet = new Set(elementsAtPoint);
 
   elementsAtPoint.forEach((element) => {
+    if (!element) return;
+
     if (!hoveredElements.current.has(element)) {
       hoveredElementEvents.current.set(element, eventType);
       dispatchEvent(element, x, y, handEvents[eventType] + '-down', handIndex);
@@ -55,6 +57,8 @@ export function eventPropagation(
   });
 
   hoveredElements.current.forEach((element) => {
+    if (!element) return;
+
     if (!currentElementsSet.has(element)) {
       dispatchEvent(element, x, y, handEvents[eventType] + '-up', handIndex);
     } else if (hoveredElementEvents.current.get(element) !== eventType) {

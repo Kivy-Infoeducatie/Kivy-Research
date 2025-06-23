@@ -4,26 +4,9 @@ import { drawLandmarks } from '@/lib/core/hand-tracking/draw-landmarks';
 import { Movable } from '@/components/playground/core/movable';
 
 export function HandTrackingVideo() {
-  const { rawLandmarksRef, videoRef, eventRegistryRef } = useHandTracking();
+  const { rawLandmarksRef, videoRef } = useHandTracking();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>(0);
-
-  const [_updater, setUpdater] = useState<number>(0);
-  const updaterRef = useRef<number>(0);
-
-  useEffect(() => {
-    function onTouchMove() {
-      updaterRef.current++;
-
-      setUpdater(updaterRef.current);
-    }
-
-    eventRegistryRef.current.on('touch-move', onTouchMove);
-
-    return () => {
-      eventRegistryRef.current.off('touch-move', onTouchMove);
-    };
-  }, []);
 
   function draw() {
     if (!canvasRef.current || !videoRef.current) return;

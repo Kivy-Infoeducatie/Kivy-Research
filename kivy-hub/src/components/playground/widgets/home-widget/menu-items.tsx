@@ -1,22 +1,23 @@
 import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
 import { Selectable } from '@/components/playground/core/selectable';
-
-interface MenuItem {
-  id: number;
-  label: string;
-  icon: ReactNode;
-
-  onPress?(): void;
-}
+import {
+  HomeItem,
+  HomeMenu
+} from '@/components/playground/widgets/home-widget/home-widget-types';
 
 interface MenuItemsProps {
   isOpen: boolean;
-  menuItems: MenuItem[];
+  menuItems: HomeItem[];
   setIsOpen: (value: boolean) => void;
+  setHomeMenu: (homeMenu: HomeMenu) => void;
 }
 
-export function MenuItems({ isOpen, menuItems, setIsOpen }: MenuItemsProps) {
+export function MenuItems({
+  isOpen,
+  menuItems,
+  setIsOpen,
+  setHomeMenu
+}: MenuItemsProps) {
   const radius = 270;
 
   return (
@@ -28,7 +29,7 @@ export function MenuItems({ isOpen, menuItems, setIsOpen }: MenuItemsProps) {
 
         return (
           <motion.div
-            key={item.id}
+            key={index}
             className='absolute h-32 w-32'
             initial={{ x: 0, y: 0, opacity: 0 }}
             animate={{
@@ -41,14 +42,17 @@ export function MenuItems({ isOpen, menuItems, setIsOpen }: MenuItemsProps) {
             <Selectable
               enabled={isOpen}
               onPrimaryPress={() => {
-                if (item.onPress) {
-                  item.onPress();
+                if (item.fn) {
+                  item.fn(setHomeMenu);
+                } else {
                   setIsOpen(!isOpen);
                 }
               }}
               className='flex h-32 w-32 items-center justify-center rounded-full bg-white text-black'
             >
-              {item.icon}
+              {item.icon ?? (
+                <label className='text-5xl font-bold'>{item.text}</label>
+              )}
             </Selectable>
           </motion.div>
         );

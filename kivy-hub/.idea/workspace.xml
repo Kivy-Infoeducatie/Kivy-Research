@@ -4,30 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Made a modular Movable component and added stable timers">
-      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/home-widget.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/main-selectable.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/menu-items.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/recipe-widget.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/start-camera-widget.tsx" afterDir="false" />
+    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Added main screen, made timer work completely and made them more responsive">
+      <change afterPath="$PROJECT_DIR$/src/components/playground/screens/home-screen.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/playground/screens/measure-screen.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-back-button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/home-widget-types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/use-menu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/measure-canvas.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/recipe-widget/recipe-widget-context.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/recipe-widget/recipes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/playground/widgets/target-widget.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bun.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bun.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/playground/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/playground/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/core/movable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/movable.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playground/dev/hand-cursor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/hand-cursors.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/dev/hand-tracking-video.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/hand-tracking-video.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playground/dev/widget-stack-debugger.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/overlays/calibration-overlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/screens/calibration-screen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/home-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/home-widget.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/menu-items.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/menu-items.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/recipe-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/recipe-widget/recipe-widget.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/timer-widget/timer-widget-context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/timer-widget/timer-widget-context.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/timer-widget/timer-widget-stack.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/timer-widget/timer-widget-stack.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/timer-widget/timer-widget-types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/timer-widget/timer-widget-types.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/timer-widget/timer-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/timer-widget/timer-widget.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/core/hand-tracking/event-propagation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/event-handling/event-propagation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/core/hand-tracking/event-registry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/event-handling/event-registry.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/core/hand-tracking/hand-tracking-context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/hand-tracking-context.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/core/hand-tracking/use-mouse-support.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/use-mouse-support.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/core/event-handling/event-propagation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/event-handling/event-propagation.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/core/screens/screen-context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/screens/screen-context.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/core/widgets/widget-context.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,11 +101,11 @@
       <recent name="$PROJECT_DIR$/kivy-hub" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/playground/widgets/recipe-widget" />
       <recent name="$PROJECT_DIR$/src/lib/core/event-handling" />
       <recent name="$PROJECT_DIR$/src/lib/core" />
       <recent name="$PROJECT_DIR$/src/app/(site)/docs/getting-started" />
       <recent name="$PROJECT_DIR$/src/app/(site)/docs/ai-arhitecture/encoders" />
-      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
@@ -178,7 +181,8 @@
       <workItem from="1750272937568" duration="10013000" />
       <workItem from="1750402119894" duration="7000" />
       <workItem from="1750416834360" duration="4480000" />
-      <workItem from="1750488097132" duration="6195000" />
+      <workItem from="1750488097132" duration="13799000" />
+      <workItem from="1750587748029" duration="12010000" />
     </task>
     <task id="LOCAL-00001" summary="Initialized and created basic hand tracking input">
       <option name="closed" value="true" />
@@ -292,18 +296,53 @@
       <option name="project" value="LOCAL" />
       <updated>1749982669539</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Rewrote the whole system, removed a lot of bugs, some features also removed and will be later added. Current version contains multiple presses, moving widgets and home widgets. Added landmarks to camera.">
+      <option name="closed" value="true" />
+      <created>1750500298008</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1750500298008</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -323,6 +362,8 @@
     <MESSAGE value="Fixed touch up not working when switching between events" />
     <MESSAGE value="Added mouse support and made little tweaks" />
     <MESSAGE value="Made a modular Movable component and added stable timers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made a modular Movable component and added stable timers" />
+    <MESSAGE value="Rewrote the whole system, removed a lot of bugs, some features also removed and will be later added. Current version contains multiple presses, moving widgets and home widgets. Added landmarks to camera." />
+    <MESSAGE value="Added main screen, made timer work completely and made them more responsive" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added main screen, made timer work completely and made them more responsive" />
   </component>
 </project>

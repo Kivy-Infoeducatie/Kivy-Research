@@ -1,19 +1,40 @@
 import { Timer } from '@/components/playground/widgets/timer-widget/timer-widget-types';
 import { TimerWidget } from '@/components/playground/widgets/timer-widget/timer-widget';
 import { Movable } from '@/components/playground/core/movable';
+import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 
 export function TimerWidgetStack({ timers }: { timers: Timer[] }) {
+  const [extended, setExtended] = useState<boolean>(true);
+
   return (
     <Movable
+      onTertiaryPress={() => {
+        setExtended(!extended);
+      }}
       initialPos={{
         x: 600,
         y: 0
       }}
-      className='flex flex-col gap-4 rounded-[3rem]'
+      className='rounded-[3rem]'
+      style={{
+        width: '23rem',
+        height: extended
+          ? (256 + 16) * timers.length - 16
+          : 256 + 16 * (timers.length - 1)
+      }}
     >
-      {timers.map((timer) => (
-        <TimerWidget key={timer.id} {...timer} />
-      ))}
+      <AnimatePresence>
+        {timers.map((timer, index) => (
+          <TimerWidget
+            index={index}
+            isExpanded={extended}
+            className='absolute left-0'
+            key={timer.id}
+            {...timer}
+          />
+        ))}
+      </AnimatePresence>
     </Movable>
   );
 }

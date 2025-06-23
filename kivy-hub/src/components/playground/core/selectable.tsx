@@ -20,7 +20,7 @@ type TouchFunction = (e: TouchEvent) => void;
 
 export type SelectableProps = HTMLAttributes<HTMLDivElement> & {
   enabled?: boolean;
-  children: ReactNode;
+  children?: ReactNode;
   ref?: RefObject<HTMLDivElement | null>;
   onPrimaryPress?: TouchFunction;
   onSecondaryPress?: TouchFunction;
@@ -157,7 +157,7 @@ export function Selectable({
 
   return (
     <div
-      data-can-interact=''
+      data-can-interact={enabled}
       {...props}
       ref={divRef}
       className={cn(

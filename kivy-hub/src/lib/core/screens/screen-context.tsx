@@ -1,14 +1,12 @@
-import { createContext, ReactNode, useContext, useRef } from 'react';
-import { useHandTracking } from '@/lib/core/hand-tracking/hand-tracking-context';
-import { HandTrackingVideo } from '@/components/playground/dev/hand-tracking-video';
+import { createContext, ReactNode, useContext, useState } from 'react';
+import { HomeScreen } from '@/components/playground/screens/home-screen';
+import { MeasureScreen } from '@/components/playground/screens/measure-screen';
 import { HandCursors } from '@/components/playground/dev/hand-cursors';
-import { TimerWidgetStack } from '@/components/playground/widgets/timer-widget/timer-widget-stack';
-import { HomeWidget } from '@/components/playground/widgets/home-widget/home-widget';
-import RecipeWidget from '@/components/playground/widgets/recipe-widget';
-import { StartCameraWidget } from '@/components/playground/widgets/start-camera-widget';
-import { useTimerWidget } from '@/components/playground/widgets/timer-widget/timer-widget-context';
+import { CalibrationScreen } from '@/components/playground/screens/calibration-screen';
 
-interface ScreenContextInterface {}
+interface ScreenContextInterface {
+  setSelectedScreen: (screenID: string) => void;
+}
 
 const screenContext = createContext<ScreenContextInterface | null>(null);
 
@@ -24,43 +22,41 @@ export function useScreenContext() {
 
 interface Screen {
   id: string;
-  Component: () => ReactNode;
-  widgets: ReactNode[];
+  Component: ({ active }: { active: boolean }) => ReactNode;
 }
 
-function Playground() {
-  const { stacks } = useTimerWidget();
-
-  return (
-    <div>
-      <HandTrackingVideo />
-      <HandCursors />
-      <HomeWidget />
-      <StartCameraWidget />
-      <RecipeWidget />
-      {stacks.map((stack) => (
-        <TimerWidgetStack key={stack.id} timers={stack.timers} />
-      ))}
-    </div>
-  );
-}
+const screens: Screen[] = [
+  {
+    id: 'main',
+    Component: HomeScreen
+  },
+  {
+    id: 'measure',
+    Component: MeasureScreen
+  },
+  {
+    id: 'calibration',
+    Component: CalibrationScreen
+  }
+] as const;
 
 export function ScreenProvider() {
-  const screensRef = useRef<Screen[]>([]);
-
-  screensRef.current = [
-    {
-      id: 'default',
-      Component: Playground,
-      widgets: []
-    }
-  ];
+  const [selectedScreen, setSelectedScreen] =
+    useState<(typeof screens)[number]['id']>('main');
 
   return (
-    <screenContext.Provider value={{}}>
-      {screensRef.current.map((screen) => (
-        <screen.Component key={screen.id} />
+    <screenContext.Provider
+      value={{
+        setSelectedScreen
+      }}
+    >
+      {screens.map((screen) => (
+        <screen.Component
+          active={selectedScreen === screen.id}
+          key={screen.id}
+        />
       ))}
+      <HandCursors />
     </screenContext.Provider>
   );
 }

@@ -4,14 +4,16 @@ import {
 } from '@/components/playground/core/selectable';
 import { Point } from '@/lib/types';
 import { useHandTracking } from '@/lib/core/hand-tracking/hand-tracking-context';
-import { useEffect, useRef, useState } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 type MovableProps = SelectableProps & {
   initialPos?: Point;
+  positionRef?: RefObject<Point>;
 };
 
 export function Movable({
+  positionRef,
   className,
   style,
   initialPos,
@@ -22,7 +24,7 @@ export function Movable({
 
   const [isDragging, setIsDragging] = useState<boolean>(false);
 
-  const positionRef = useRef<Point>(initialPos ?? { x: 0, y: 0 });
+  positionRef = positionRef! ?? useRef<Point>(initialPos ?? { x: 0, y: 0 })!;
 
   const movementRef = useRef<Point>({
     x: 0,
@@ -35,12 +37,12 @@ export function Movable({
     if (!isDragging) return;
 
     function onTouchMove(position: Point) {
-      positionRef.current = {
+      positionRef!.current = {
         x: position.x - movementRef.current.x,
         y: position.y - movementRef.current.y
       };
 
-      elementRef.current!.style.translate = `${positionRef.current.x}px ${positionRef.current.y}px`;
+      elementRef.current!.style.translate = `${positionRef!.current.x}px ${positionRef!.current.y}px`;
     }
 
     const eventRegistry = eventRegistryRef.current;
