@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useMenu } from '@/components/playground/widgets/home-widget/use-menu';
 
 export function HomeWidget() {
-  const { homeMenu, setHomeMenu, mainMenu } = useMenu();
+  const { homeMenu, setHomeMenu } = useMenu();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -12,8 +12,6 @@ export function HomeWidget() {
     if (!homeMenu.showBack) {
       setIsOpen(!isOpen);
     }
-    
-    setHomeMenu(mainMenu);
   };
 
   return (

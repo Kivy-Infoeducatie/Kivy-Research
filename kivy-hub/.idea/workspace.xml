@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Added cutting tools">
-      <change afterPath="$PROJECT_DIR$/src/app/playground/loader.tsx" afterDir="false" />
+    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Fixed hub closing when hovered via hand">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/playground/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/playground/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/core/kivy.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/home-widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/widgets/home-widget/home-widget.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/core/event-handling/event-propagation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/event-handling/event-propagation.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +290,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750665765761</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added dynamic import to solve window is undefined error">
+      <option name="closed" value="true" />
+      <created>1750669053585</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1750669053585</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,6 +360,8 @@
     <MESSAGE value="Added main screen, made timer work completely and made them more responsive" />
     <MESSAGE value="Finished timers, added measurement tool, added recipes, added calibration" />
     <MESSAGE value="Added cutting tools" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added cutting tools" />
+    <MESSAGE value="Added dynamic import to solve window is undefined error" />
+    <MESSAGE value="Fixed hub closing when hovered via hand" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed hub closing when hovered via hand" />
   </component>
 </project>
