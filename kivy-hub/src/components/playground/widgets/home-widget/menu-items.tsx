@@ -23,7 +23,10 @@ export function MenuItems({
   return (
     <>
       {menuItems.map((item, index) => {
-        const angle = -Math.PI * (0.35 + index / (menuItems.length - 1) / 1.25);
+        let nr1 = menuItems.length > 2 ? 0.35 : 0.52;
+        let nr2 = menuItems.length > 2 ? 1.25 : 2;
+
+        const angle = -Math.PI * (nr1 + index / (menuItems.length - 1) / nr2);
         const x = radius * Math.cos(angle);
         const y = radius * Math.sin(angle);
 

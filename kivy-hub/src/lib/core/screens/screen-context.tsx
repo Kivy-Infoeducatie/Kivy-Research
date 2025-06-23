@@ -3,6 +3,8 @@ import { HomeScreen } from '@/components/playground/screens/home-screen';
 import { MeasureScreen } from '@/components/playground/screens/measure-screen';
 import { HandCursors } from '@/components/playground/dev/hand-cursors';
 import { CalibrationScreen } from '@/components/playground/screens/calibration-screen';
+import { CircleCutScreen } from '@/components/playground/screens/circle-cut-screen';
+import { RectangleCutScreen } from '@/components/playground/screens/rectangle-cut-screen';
 
 interface ScreenContextInterface {
   setSelectedScreen: (screenID: string) => void;
@@ -37,6 +39,14 @@ const screens: Screen[] = [
   {
     id: 'calibration',
     Component: CalibrationScreen
+  },
+  {
+    id: 'circle-cut',
+    Component: CircleCutScreen
+  },
+  {
+    id: 'rectangle-cut',
+    Component: RectangleCutScreen
   }
 ] as const;
 

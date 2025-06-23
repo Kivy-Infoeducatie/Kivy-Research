@@ -37,7 +37,7 @@ export function useMenu() {
       },
       {
         icon: <i className='fa fa-ruler text-6xl' />,
-        fn(setHomeMenu: setHomeMenuFn) {
+        fn() {
           setSelectedScreen('measure');
         }
       },
@@ -55,7 +55,7 @@ export function useMenu() {
       },
       {
         icon: <i className='fa fa-gears text-6xl' />,
-        fn(setHomeMenu: setHomeMenuFn) {
+        fn() {
           setSelectedScreen('calibration');
         }
       }
@@ -138,19 +138,15 @@ export function useMenu() {
     items: [
       {
         icon: <i className='fa-regular fa-circle text-6xl' />,
-        fn(setHomeMenu: setHomeMenuFn) {}
-      },
-      {
-        icon: <i className='fa-regular fa-hexagon text-6xl' />,
-        fn(setHomeMenu: setHomeMenuFn) {}
+        fn() {
+          setSelectedScreen('circle-cut');
+        }
       },
       {
         icon: <i className='fa-regular fa-rectangle text-6xl' />,
-        fn(setHomeMenu: setHomeMenuFn) {}
-      },
-      {
-        icon: <i className='fa-regular fa-triangle text-6xl' />,
-        fn(setHomeMenu: setHomeMenuFn) {}
+        fn() {
+          setSelectedScreen('rectangle-cut');
+        }
       }
     ],
     text: 'Cutter',
@@ -165,31 +161,31 @@ export function useMenu() {
     items: [
       {
         icon: <i className='fa fa-drumstick text-6xl' />,
-        fn(setHomeMenu: setHomeMenuFn) {
+        fn() {
           setRecipe(chickenDish);
         }
       },
       {
         icon: <i className='fa fa-salad text-6xl' />,
-        fn(setHomeMenu: setHomeMenuFn) {
+        fn() {
           setRecipe(salad);
         }
       },
       {
         icon: <i className='fa fa-soup text-6xl' />,
-        fn(setHomeMenu: setHomeMenuFn) {
+        fn() {
           setRecipe(soup);
         }
       },
       {
         icon: <i className='fa fa-pizza text-6xl' />,
-        fn(setHomeMenu: setHomeMenuFn) {
+        fn() {
           setRecipe(pizza);
         }
       },
       {
         icon: <i className='fa fa-avocado text-6xl' />,
-        fn(setHomeMenu: setHomeMenuFn) {
+        fn() {
           setRecipe(healthy);
         }
       }
