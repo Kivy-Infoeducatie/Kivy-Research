@@ -1,7 +1,9 @@
-import type { NextConfig } from 'next';
+import nextra from 'nextra';
 
-const nextConfig: NextConfig = {
-  reactStrictMode: true
-};
+const withNextra = nextra({
+  search: {
+    codeblocks: false
+  }
+});
 
-export default nextConfig;
+export default withNextra({});
