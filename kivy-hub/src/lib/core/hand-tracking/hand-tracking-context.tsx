@@ -35,6 +35,7 @@ interface HandTrackingContextInterface {
   videoRef: RefObject<any>;
   eventRegistryRef: RefObject<EventRegistry<HandTrackingEvents>>;
   isTracking: boolean;
+  webcamRunning: boolean;
 
   toggleTracking(): void;
 
@@ -191,7 +192,8 @@ export function HandTrackingProvider({ children }: { children: ReactNode }) {
         videoRef,
         eventRegistryRef,
         mousePositionRef,
-        isTracking
+        isTracking,
+        webcamRunning
       }}
     >
       {children}

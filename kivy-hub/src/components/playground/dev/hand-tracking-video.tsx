@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useHandTracking } from '@/lib/core/hand-tracking/hand-tracking-context';
 import { drawLandmarks } from '@/lib/core/hand-tracking/draw-landmarks';
 import { Movable } from '@/components/playground/core/movable';
 
 export function HandTrackingVideo() {
-  const { rawLandmarksRef, videoRef } = useHandTracking();
+  const { rawLandmarksRef, videoRef, modelStatus, isTracking, webcamRunning } =
+    useHandTracking();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>(0);
 
@@ -53,6 +54,25 @@ export function HandTrackingVideo() {
       }}
       className='max-w-min rounded-[3rem]'
     >
+      <div className='absolute top-4 left-4 flex flex-col gap-2 rounded-[2rem] bg-white p-4 text-black'>
+        <label>Status: {modelStatus}</label>
+        <label>
+          Is tracking:{' '}
+          {isTracking ? (
+            <span className='text-green-400'>True</span>
+          ) : (
+            <span className='text-red-400'>False</span>
+          )}
+        </label>
+        <label>
+          Camera running:{' '}
+          {webcamRunning ? (
+            <span className='text-green-400'>True</span>
+          ) : (
+            <span className='text-red-400'>False</span>
+          )}
+        </label>
+      </div>
       <canvas
         className='rounded-[3rem]'
         ref={canvasRef}

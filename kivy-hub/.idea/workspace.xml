@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Fixed dragging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playground/core/movable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/movable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/core/event-handling/event-propagation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/event-handling/event-propagation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/dev/hand-tracking-video.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/dev/hand-tracking-video.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/core/hand-tracking/hand-tracking-context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/hand-tracking/hand-tracking-context.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +161,7 @@
       <workItem from="1750488097132" duration="13799000" />
       <workItem from="1750587748029" duration="14459000" />
       <workItem from="1750706463042" duration="4287000" />
-      <workItem from="1750762931369" duration="849000" />
+      <workItem from="1750762931369" duration="1806000" />
     </task>
     <task id="LOCAL-00001" summary="Initialized and created basic hand tracking input">
       <option name="closed" value="true" />
@@ -332,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750713832720</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Fixed dragging">
+      <option name="closed" value="true" />
+      <created>1750763984058</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1750763984058</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
