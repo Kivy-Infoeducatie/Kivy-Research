@@ -62,7 +62,7 @@ export function Movable({
         translate: `${initialPos?.x ?? 0}px ${initialPos?.y ?? 0}px`,
         ...style
       }}
-      onSecondaryPress={(e) => {
+      onSecondaryPress={() => {
         setIsDragging(true);
 
         if (landmarksRef.current.length > 0) {
@@ -80,6 +80,7 @@ export function Movable({
         }
       }}
       onSecondaryRelease={() => {
+        console.log('Release');
         setIsDragging(false);
       }}
       {...props}

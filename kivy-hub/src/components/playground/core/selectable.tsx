@@ -98,6 +98,8 @@ export function Selectable({
 
     const handleTouchUp =
       (handEvent: HandEvent, fn?: TouchFunction) => (e: TouchEvent) => {
+        console.log('touch uop', handEvent, selected);
+
         if (stopPropagation) e.stopPropagation();
         if (timeOutRef.current) clearTimeout(timeOutRef.current);
         selectingRef.current = false;

@@ -37,11 +37,9 @@ function sortByStacking(elements: any[]) {
   function compareContexts(aCtx: any[], bCtx: any[]) {
     for (let i = 0; i < Math.min(aCtx.length, bCtx.length); i++) {
       if (aCtx[i] !== bCtx[i]) {
-        // siblings in the same context
         const aZ = zIndexValue(aCtx[i]),
           bZ = zIndexValue(bCtx[i]);
         if (aZ !== bZ) return aZ - bZ;
-        // same z-index: fall back to DOM order
         return aCtx[i].compareDocumentPosition(bCtx[i]) &
           Node.DOCUMENT_POSITION_PRECEDING
           ? 1
@@ -126,7 +124,13 @@ export function eventPropagation(
     if (!element) return;
 
     if (!currentElementsSet.has(element)) {
-      dispatchEvent(element, x, y, handEvents[eventType] + '-up', handIndex);
+      dispatchEvent(
+        element,
+        x,
+        y,
+        handEvents[hoveredElementEvents.current.get(element)!] + '-up',
+        handIndex
+      );
     } else if (hoveredElementEvents.current.get(element) !== eventType) {
       dispatchEvent(
         element,
@@ -135,6 +139,7 @@ export function eventPropagation(
         handEvents[hoveredElementEvents.current.get(element)!] + '-up',
         handIndex
       );
+      console.log('Up 2');
       hoveredElementEvents.current.delete(element);
     }
   });

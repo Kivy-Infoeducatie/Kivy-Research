@@ -4,58 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Added docs">
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/core-components/drawable/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/core-components/expand-options/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/core-components/movable/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/core-components/screens/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/core-components/selectable/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/installation/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/interaction/event-system/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/interaction/hand-interaction/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/interaction/input-context/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/interaction/mouse-interaction/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/plugins/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/widgets/cursor/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/widgets/hand-tracking-video/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/widgets/home-back-button/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/developer/widgets/target/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/research/abstract/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/research/dataset/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/research/introduction/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/research/methodology/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/research/references/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/research/related-work/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/research/training-objectives/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/user/interaction/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/user/introduction/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/user/moving-widgets/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/user/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/user/tools/calirbation/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/user/tools/ellipse-cut/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/user/tools/grid-cut/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/user/tools/measure/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/user/tools/recipe-select/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/user/widgets/hub/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(site)/docs/user/widgets/timer/page.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mdx-components.js" afterDir="false" />
+    <list default="true" id="0eef774d-8ec0-4c57-a4c8-8a1bbae69cfb" name="Changes" comment="Fixed dragging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bun.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bun.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(site)/docs/ai-architecture/encoders/nutriment/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(site)/docs/getting-started/installation/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(site)/docs/getting-started/introduction/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(site)/docs/getting-started/quick-start/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(site)/docs/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/docs/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(site)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/(home)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(site)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(site)/(home)/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playground/core/overlay.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/core/movable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/movable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playground/core/selectable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/core/event-handling/event-propagation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/core/event-handling/event-propagation.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,25 +51,25 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "/Users/karo/Developer/Kivy/kivy-hub/src/app/(site)/docs/user/widgets/timer",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/karo/Developer/Kivy/kivy-hub/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/Users/karo/Developer/Kivy/kivy-hub/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/src/app/(site)/docs/user/widgets/timer&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/karo/Developer/Kivy/kivy-hub/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/(site)/docs/user/widgets/timer" />
@@ -208,7 +161,8 @@
       <workItem from="1750416834360" duration="4480000" />
       <workItem from="1750488097132" duration="13799000" />
       <workItem from="1750587748029" duration="14459000" />
-      <workItem from="1750706463042" duration="4121000" />
+      <workItem from="1750706463042" duration="4287000" />
+      <workItem from="1750762931369" duration="849000" />
     </task>
     <task id="LOCAL-00001" summary="Initialized and created basic hand tracking input">
       <option name="closed" value="true" />
@@ -370,7 +324,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750672876938</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Added docs">
+      <option name="closed" value="true" />
+      <created>1750713832720</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1750713832720</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,6 +398,7 @@
     <MESSAGE value="Fixed back button not working" />
     <MESSAGE value="Fixed timer buttons not working" />
     <MESSAGE value="Added docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added docs" />
+    <MESSAGE value="Fixed dragging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed dragging" />
   </component>
 </project>
